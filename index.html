@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinar Gratuito — La Ciencia Detrás de la Cerveza Clara y Oscura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { 400: '#D4AF37', 500: '#C5A028', 600: '#B08D22' },
+                        wine: { 900: '#2C041C', 950: '#1A0210' },
+                        amber: { 400: '#D4A037', 500: '#C49028', 600: '#A87720' },
+                        dark: { 800: '#1C1C1C', 900: '#0A0A0A', 950: '#050505' }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0A0A0A; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        ::selection { background: #C5A028; color: #0A0A0A; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.2), 0 0 60px rgba(212, 175, 55, 0.05); }
+            50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.4), 0 0 80px rgba(212, 175, 55, 0.1); }
+        }
+        @keyframes countdown-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes slide-up {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bubble1 {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.2; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+        @keyframes bubble2 {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            15% { opacity: 0.4; }
+            85% { opacity: 0.15; }
+            100% { transform: translateY(-10vh) scale(0.8); opacity: 0; }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+        .animate-countdown { animation: countdown-pulse 2s ease-in-out infinite; }
+        .animate-slide-up { animation: slide-up 0.8s ease-out forwards; }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(212,175,55,0.3), rgba(212,175,55,0.05));
+            border: 1px solid rgba(212,175,55,0.1);
+        }
+
+        .cta-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+
+        .benefit-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212,175,55,0.4);
+            box-shadow: 0 20px 60px -15px rgba(212,175,55,0.15);
+        }
+
+        .poster-glow {
+            filter: drop-shadow(0 0 40px rgba(212,175,55,0.15));
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- Bubbles Background -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" id="bubbles-container"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 bg-dark-900/70 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <span class="iconify text-amber-400 text-2xl" data-icon="mdi:beer"></span>
+                <span class="font-serif text-xl tracking-tight">Webinar Cervecero</span>
+            </div>
+            <a href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener"
+               class="hidden sm:flex items-center gap-2 px-5 py-2.5 bg-amber-400 text-dark-900 text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-amber-500 transition-all duration-300">
+                <span class="iconify text-sm" data-icon="mdi:whatsapp"></span>
+                Unirme Ahora
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 via-dark-900 to-dark-900"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-radial from-amber-400/10 to-transparent rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Left: Text Content -->
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-amber-400/30 rounded-full bg-amber-400/5 backdrop-blur-sm mb-8">
+                        <span class="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></span>
+                        <span class="text-xs tracking-widest uppercase text-amber-400 font-medium">Webinar Gratuito • Viernes 29 de Mayo</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none tracking-tight mb-6">
+                        La Ciencia Detrás de la
+                        <span class="block mt-2">
+                            <span class="text-amber-400">Cerveza Clara</span>
+                        </span>
+                        <span class="block mt-1">y <span class="text-amber-600">Oscura</span></span>
+                    </h1>
+
+                    <p class="text-neutral-400 text-lg font-light leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
+                        Descubre los secretos químicos y biológicos que definen el color, aroma y sabor de tu cerveza favorita. Una clase que cambiará tu forma de entender la cervecera.
+                    </p>
+
+                    <!-- Date/Time Info -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 mb-10">
+                        <div class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-3">
+                            <span class="iconify text-amber-400 text-xl" data-icon="mdi:calendar-clock"></span>
+                            <div>
+                                <p class="text-xs text-neutral-500 uppercase tracking-wider">Fecha</p>
+                                <p class="text-sm font-medium">Viernes 29 de Mayo</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-3">
+                            <span class="iconify text-amber-400 text-xl" data-icon="mdi:clock-outline"></span>
+                            <div>
+                                <p class="text-xs text-neutral-500 uppercase tracking-wider">Hora</p>
+                                <p class="text-sm font-medium">19:30 hrs</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-3">
+                            <span class="iconify text-amber-400 text-xl" data-icon="mdi:video-outline"></span>
+                            <div>
+                                <p class="text-xs text-neutral-500 uppercase tracking-wider">Plataforma</p>
+                                <p class="text-sm font-medium">Zoom</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <a href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener"
+                       class="cta-btn animate-pulse-glow inline-flex items-center gap-3 px-10 py-5 bg-amber-400 text-dark-900 text-sm font-bold uppercase tracking-widest rounded-full hover:bg-amber-500 hover:scale-105 transition-all duration-300 group">
+                        <span class="iconify text-2xl" data-icon="mdi:whatsapp"></span>
+                        Reservar Mi Lugar Gratis
+                        <span class="iconify text-lg group-hover:translate-x-1 transition-transform" data-icon="mdi:arrow-right"></span>
+                    </a>
+
+                    <p class="text-neutral-500 text-xs mt-4 flex items-center justify-center lg:justify-start gap-1.5">
+                        <span class="iconify text-red-400" data-icon="mdi:fire"></span>
+                        <span>¡Cupos limitados! Únete al grupo para recibir el enlace de acceso</span>
+                    </p>
+                </div>
+
+                <!-- Right: Poster Image -->
+                <div class="relative flex justify-center lg:justify-end">
+                    <div class="animate-float poster-glow relative">
+                        <div class="absolute -inset-4 bg-gradient-to-br from-amber-400/20 via-transparent to-amber-600/20 rounded-2xl blur-xl"></div>
+                        <img src="https://z-cdn-media.chatglm.cn/files/9f5e3d55-1b67-4ca7-ba8d-82f47cb926b9.png?auth_key=1879293872-d0bbcb2578ef4597924e40b0f00999c5-0-74226e1f82f6453f49b120006a8bbe4c"
+                             alt="Webinar La Ciencia Detrás de la Cerveza Clara y Oscura"
+                             class="relative rounded-2xl shadow-2xl max-w-md w-full border border-white/10">
+                    </div>
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-4 -left-4 sm:left-4 bg-dark-900/90 backdrop-blur-md border border-amber-400/30 rounded-xl px-4 py-3 shadow-2xl">
+                        <p class="text-amber-400 font-serif text-2xl font-semibold">100%</p>
+                        <p class="text-xs text-neutral-400 uppercase tracking-wider">Gratuito</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="relative py-12 bg-dark-950 border-y border-white/5">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="text-xs uppercase tracking-widest text-neutral-500 mb-6">El webinar comienza en</p>
+            <div class="flex justify-center gap-4 sm:gap-8" id="countdown">
+                <div class="flex flex-col items-center">
+                    <div class="bg-white/5 border border-white/10 rounded-xl w-16 sm:w-20 h-16 sm:h-20 flex items-center justify-center">
+                        <span id="days" class="font-serif text-3xl sm:text-4xl text-amber-400">--</span>
+                    </div>
+                    <span class="text-xs text-neutral-500 mt-2 uppercase tracking-wider">Días</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="bg-white/5 border border-white/10 rounded-xl w-16 sm:w-20 h-16 sm:h-20 flex items-center justify-center">
+                        <span id="hours" class="font-serif text-3xl sm:text-4xl text-amber-400">--</span>
+                    </div>
+                    <span class="text-xs text-neutral-500 mt-2 uppercase tracking-wider">Horas</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="bg-white/5 border border-white/10 rounded-xl w-16 sm:w-20 h-16 sm:h-20 flex items-center justify-center">
+                        <span id="minutes" class="font-serif text-3xl sm:text-4xl text-amber-400">--</span>
+                    </div>
+                    <span class="text-xs text-neutral-500 mt-2 uppercase tracking-wider">Min</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="bg-white/5 border border-white/10 rounded-xl w-16 sm:w-20 h-16 sm:h-20 flex items-center justify-center animate-countdown">
+                        <span id="seconds" class="font-serif text-3xl sm:text-4xl text-white">--</span>
+                    </div>
+                    <span class="text-xs text-neutral-500 mt-2 uppercase tracking-wider">Seg</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You'll Learn -->
+    <section class="relative py-24 px-6">
+        <div class="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-950 to-dark-900"></div>
+        <div class="relative z-10 max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-widest text-amber-400 font-medium">¿Qué aprenderás?</span>
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl tracking-tight mt-4">Temas del Webinar</h2>
+                <div class="w-16 h-px bg-amber-400 mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <!-- Card 1 -->
+                <div class="benefit-card bg-white/[0.03] border border-white/10 rounded-2xl p-8 group cursor-default">
+                    <div class="w-14 h-14 rounded-full bg-amber-400/10 border border-amber-400/20 flex items-center justify-center mb-6 group-hover:bg-amber-400/20 transition-colors duration-500">
+                        <span class="iconify text-amber-400 text-2xl" data-icon="mdi:palette-outline"></span>
+                    </div>
+                    <h3 class="font-serif text-xl tracking-tight mb-3">Formación del Color</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed">Comprende los procesos químicos que determinan el color de la cerveza, desde el malteado hasta el producto final en tu vaso.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="benefit-card bg-white/[0.03] border border-white/10 rounded-2xl p-8 group cursor-default">
+                    <div class="w-14 h-14 rounded-full bg-amber-400/10 border border-amber-400/20 flex items-center justify-center mb-6 group-hover:bg-amber-400/20 transition-colors duration-500">
+                        <span class="iconify text-amber-400 text-2xl" data-icon="mdi:grain"></span>
+                    </div>
+                    <h3 class="font-serif text-xl tracking-tight mb-3">El Rol de la Malta</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed">Descubre cómo los diferentes tipos de malta influyen en el cuerpo, dulzor y complejidad de cada estilo cervecero.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="benefit-item benefit-card bg-white/[0.03] border border-white/10 rounded-2xl p-8 group cursor-default">
+                    <div class="w-14 h-14 rounded-full bg-amber-400/10 border border-amber-400/20 flex items-center justify-center mb-6 group-hover:bg-amber-400/20 transition-colors duration-500">
+                        <span class="iconify text-amber-400 text-2xl" data-icon="mdi:flask-outline"></span>
+                    </div>
+                    <h3 class="font-serif text-xl tracking-tight mb-3">Fermentación y Sabor</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed">Explora cómo la fermentación transforma los azúcares y genera los compuestos aromáticos que definen el perfil sensorial.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="benefit-card bg-white/[0.03] border border-white/10 rounded-2xl p-8 group cursor-default">
+                    <div class="w-14 h-14 rounded-full bg-amber-400/10 border border-amber-400/20 flex items-center justify-center mb-6 group-hover:bg-amber-400/20 transition-colors duration-500">
+                        <span class="iconify text-amber-400 text-2xl" data-icon="mdi:compare-horizontal"></span>
+                    </div>
+                    <h3 class="font-serif text-xl tracking-tight mb-3">Análisis Comparativo</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed">Análisis lado a lado de cervezas claras y oscuras: diferencias en ingredientes, procesos y resultados organolépticos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="relative py-24 px-6 bg-dark-950">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-widest text-amber-400 font-medium">3 Pasos</span>
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl tracking-tight mt-4">¿Cómo acceder a la clase?</h2>
+                <div class="w-16 h-px bg-amber-400 mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center group">
+                    <div class="relative mx-auto w-20 h-20 rounded-full border border-amber-400/30 bg-amber-400/5 flex items-center justify-center mb-6 group-hover:border-amber-400/60 transition-colors duration-500">
+                        <span class="font-serif text-3xl text-amber-400">1</span>
+                    </div>
+                    <h3 class="font-serif text-xl tracking-tight mb-3">Únete al Grupo</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed">Haz clic en el botón y únete al grupo de WhatsApp donde compartiremos toda la información.</p>
+                </div>
+
+                <!-- Connector -->
+                <div class="hidden md:flex items-start justify-center pt-10">
+                    <div class="w-20 h-px bg-gradient-to-r from-amber-400/30 to-amber-400/30"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center group">
+                    <div class="relative mx-auto w-20 h-20 rounded-full border border-amber-400/30 bg-amber-400/5 flex items-center justify-center mb-6 group-hover:border-amber-400/60 transition-colors duration-500">
+                        <span class="font-serif text-3xl text-amber-400">2</span>
+                    </div>
+                    <h3 class="font-serif text-xl tracking-tight mb-3">Recibe el Enlace</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed">Te enviaremos el enlace de Zoom directamente en el grupo antes de la clase.</p>
+                </div>
+            </div>
+
+            <!-- Step 3 standalone centered -->
+            <div class="text-center mt-8 group">
+                <div class="relative mx-auto w-20 h-20 rounded-full border border-amber-400/30 bg-amber-400/5 flex items-center justify-center mb-6 group-hover:border-amber-400/60 transition-colors duration-500">
+                    <span class="font-serif text-3xl text-amber-400">3</span>
+                </div>
+                <h3 class="font-serif text-xl tracking-tight mb-3">Disfruta el Webinar</h3>
+                <p class="text-neutral-400 text-sm leading-relaxed max-w-md mx-auto">Conéctate el viernes 29 de mayo a las 19:30 y aprende la ciencia detrás de tu cerveza favorita.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Urgency -->
+    <section class="relative py-20 px-6 bg-dark-900 border-y border-white/5">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="flex flex-wrap justify-center gap-6 mb-12">
+                <div class="bg-white/[0.03] border border-white/10 rounded-2xl px-8 py-6 min-w-[160px]">
+                    <p class="font-serif text-4xl text-amber-400 mb-1">Zoom</p>
+                    <p class="text-xs text-neutral-500 uppercase tracking-wider">En Vivo</p>
+                </div>
+                <div class="bg-white/[0.03] border border-white/10 rounded-2xl px-8 py-6 min-w-[160px]">
+                    <p class="font-serif text-4xl text-amber-400 mb-1">Q&A</p>
+                    <p class="text-xs text-neutral-500 uppercase tracking-wider">Preguntas en Vivo</p>
+                </div>
+                <div class="bg-white/[0.03] border border-white/10 rounded-2xl px-8 py-6 min-w-[160px]">
+                    <p class="font-serif text-4xl text-amber-400 mb-1">$0</p>
+                    <p class="text-xs text-neutral-500 uppercase tracking-wider">Costo</p>
+                </div>
+            </div>
+
+            <!-- Testimonial style quote -->
+            <div class="max-w-2xl mx-auto bg-white/[0.03] border border-white/10 rounded-2xl p-8 md:p-10">
+                <span class="iconify text-amber-400/30 text-5xl mb-4 block" data-icon="mdi:format-quote-open"></span>
+                <p class="font-serif text-xl md:text-2xl text-neutral-200 leading-relaxed mb-6 italic">
+                    "Entender la ciencia detrás de cada sorbo transforma completamente la experiencia cervecera. Este webinar abre esa puerta."
+                </p>
+                <div class="w-12 h-px bg-amber-400/40 mx-auto mb-4"></div>
+                <p class="text-sm text-neutral-400">— Comunidad Cervecera</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="relative py-24 px-6 overflow-hidden">
+        <!-- Background effects -->
+        <div class="absolute inset-0 bg-gradient-to-b from-dark-950 via-dark-900 to-dark-950"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-amber-400/10 to-transparent rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 max-w-3xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-red-400/30 rounded-full bg-red-400/5 mb-8">
+                <span class="iconify text-red-400" data-icon="mdi:fire"></span>
+                <span class="text-xs tracking-widest uppercase text-red-400 font-medium">Cupos Limitados</span>
+            </div>
+
+            <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl tracking-tight mb-6">
+                No te quedes fuera de esta clase
+            </h2>
+            <p class="text-neutral-400 text-lg font-light leading-relaxed mb-10 max-w-xl mx-auto">
+                Únete ahora al grupo de WhatsApp y asegura tu lugar en el webinar gratuito sobre la ciencia de la cerveza.
+            </p>
+
+            <a href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener"
+               class="cta-btn animate-pulse-glow inline-flex items-center gap-3 px-12 py-5 bg-amber-400 text-dark-900 text-sm font-bold uppercase tracking-widest rounded-full hover:bg-amber-500 hover:scale-105 transition-all duration-300 group shadow-2xl">
+                <span class="iconify text-2xl" data-icon="mdi:whatsapp"></span>
+                Unirme al Grupo de WhatsApp
+                <span class="iconify text-lg group-hover:translate-x-1 transition-transform" data-icon="mdi:arrow-right"></span>
+            </a>
+
+            <p class="text-neutral-500 text-xs mt-6 flex items-center justify-center gap-2">
+                <span class="iconify text-green-400" data-icon="mdi:shield-check-outline"></span>
+                Es 100% gratis • Sin spam • Sal cuando quieras
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-950 border-t border-white/5 py-12 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <span class="iconify text-amber-400 text-xl" data-icon="mdi:beer"></span>
+                <span class="font-serif text-lg tracking-tight">Webinar Cervecero</span>
+            </div>
+            <p class="text-neutral-500 text-sm mb-6">Viernes 29 de Mayo • 19:30 hrs • Zoom</p>
+            <div class="flex justify-center gap-4">
+                <a href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener"
+                   class="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:border-amber-400/40 hover:text-amber-400 transition-all duration-300">
+                    <span class="iconify text-lg" data-icon="mdi:whatsapp"></span>
+                </a>
+            </div>
+            <p class="text-neutral-600 text-xs mt-8">© 2025 Webinar Cervecero. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button (Mobile) -->
+    <a href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener"
+       class="fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300 sm:hidden">
+        <span class="iconify text-white text-3xl" data-icon="mdi:whatsapp"></span>
+    </a>
+
+    <script>
+        // ============ COUNTDOWN TIMER ============
+        // Target: Next May 29th at 19:30
+        function getNextTargetDate() {
+            const now = new Date();
+            let year = now.getFullYear();
+            let target = new Date(year, 4, 29, 19, 30, 0); // Month is 0-indexed, 4 = May
+            if (now > target) {
+                target = new Date(year + 1, 4, 29, 19, 30, 0);
+            }
+            return target;
+        }
+
+        const targetDate = getNextTargetDate();
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ============ BUBBLES ANIMATION ============
+        function createBubbles() {
+            const container = document.getElementById('bubbles-container');
+            const bubbleCount = 15;
+
+            for (let i = 0; i < bubbleCount; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                const size = Math.random() * 30 + 8;
+                bubble.style.width = size + 'px';
+                bubble.style.height = size + 'px';
+                bubble.style.left = Math.random() * 100 + '%';
+                bubble.style.animationName = Math.random() > 0.5 ? 'bubble1' : 'bubble2';
+                bubble.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                bubble.style.animationDelay = (Math.random() * 10) + 's';
+                bubble.style.animationIterationCount = 'infinite';
+                bubble.style.animationTimingFunction = 'ease-in';
+                container.appendChild(bubble);
+            }
+        }
+        createBubbles();
+
+        // ============ SCROLL ANIMATIONS ============
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.benefit-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.15}s`;
+            observer.observe(card);
+        });
+
+        // ============ SMOOTH SCROLL ============
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
