@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webinar Gratuito — La Ciencia Detrás de la Cerveza Clara y Oscura</title>
+    <title>Webinar Gratuito — Secretos Científicos de la Fermentación</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
@@ -60,10 +60,15 @@
             85% { opacity: 0.15; }
             100% { transform: translateY(-10vh) scale(0.8); opacity: 0; }
         }
+        @keyframes molecule-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
         .animate-float { animation: float 6s ease-in-out infinite; }
         .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
         .animate-countdown { animation: countdown-pulse 2s ease-in-out infinite; }
         .animate-slide-up { animation: slide-up 0.8s ease-out forwards; }
+        .animate-molecule { animation: molecule-rotate 30s linear infinite; }
 
         .bubble {
             position: absolute;
@@ -99,6 +104,18 @@
         .poster-glow {
             filter: drop-shadow(0 0 40px rgba(212,175,55,0.15));
         }
+
+        .diploma-badge {
+            background: linear-gradient(135deg, rgba(212,160,55,0.15), rgba(176,141,34,0.05));
+            border: 1px solid rgba(212,175,55,0.3);
+        }
+
+        /* Decorative molecule SVG */
+        .molecule-bg {
+            position: absolute;
+            opacity: 0.06;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body class="bg-dark-900 text-white font-sans antialiased overflow-x-hidden">
@@ -110,10 +127,10 @@
     <nav class="fixed top-0 w-full z-50 bg-dark-900/70 backdrop-blur-md border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <span class="iconify text-amber-400 text-2xl" data-icon="mdi:beer"></span>
-                <span class="font-serif text-xl tracking-tight">Webinar Cervecero</span>
+                <span class="iconify text-amber-400 text-2xl" data-icon="mdi:flask-round-bottom"></span>
+                <span class="font-serif text-xl tracking-tight">Webinar de Fermentación</span>
             </div>
-            <a href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener"
+            <a href="https://chat.whatsapp.com/F38jOUYcGIlEr1lafZLeQ8" target="_blank" rel="noopener"
                class="hidden sm:flex items-center gap-2 px-5 py-2.5 bg-amber-400 text-dark-900 text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-amber-500 transition-all duration-300">
                 <span class="iconify text-sm" data-icon="mdi:whatsapp"></span>
                 Unirme Ahora
@@ -127,25 +144,46 @@
         <div class="absolute inset-0 bg-gradient-to-b from-amber-400/5 via-dark-900 to-dark-900"></div>
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-radial from-amber-400/10 to-transparent rounded-full blur-3xl"></div>
 
+        <!-- Decorative molecule -->
+        <svg class="molecule-bg animate-molecule" style="top:15%; right:-50px; width:300px;" viewBox="0 0 200 200" fill="none">
+            <circle cx="100" cy="100" r="12" fill="#D4A037"/>
+            <circle cx="40" cy="60" r="8" fill="#D4A037"/>
+            <circle cx="160" cy="60" r="8" fill="#D4A037"/>
+            <circle cx="40" cy="140" r="8" fill="#D4A037"/>
+            <circle cx="160" cy="140" r="8" fill="#D4A037"/>
+            <circle cx="100" cy="30" r="6" fill="#D4A037"/>
+            <circle cx="100" cy="170" r="6" fill="#D4A037"/>
+            <line x1="100" y1="100" x2="40" y2="60" stroke="#D4A037" stroke-width="2"/>
+            <line x1="100" y1="100" x2="160" y2="60" stroke="#D4A037" stroke-width="2"/>
+            <line x1="100" y1="100" x2="40" y2="140" stroke="#D4A037" stroke-width="2"/>
+            <line x1="100" y1="100" x2="160" y2="140" stroke="#D4A037" stroke-width="2"/>
+            <line x1="100" y1="100" x2="100" y2="30" stroke="#D4A037" stroke-width="2"/>
+            <line x1="100" y1="100" x2="100" y2="170" stroke="#D4A037" stroke-width="2"/>
+        </svg>
+
         <div class="relative z-10 max-w-7xl mx-auto px-6 py-20">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <!-- Left: Text Content -->
                 <div class="text-center lg:text-left">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-amber-400/30 rounded-full bg-amber-400/5 backdrop-blur-sm mb-8">
                         <span class="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></span>
-                        <span class="text-xs tracking-widest uppercase text-amber-400 font-medium">Webinar Gratuito • Viernes 29 de Mayo</span>
+                        <span class="text-xs tracking-widest uppercase text-amber-400 font-medium">Webinar Gratuito • Jueves 6 de Agosto</span>
+                    </div>
+
+                    <!-- Diploma Badge -->
+                    <div class="inline-flex items-center gap-2 diploma-badge rounded-full px-4 py-1.5 mb-6">
+                        <span class="iconify text-amber-400 text-sm" data-icon="mdi:certificate-outline"></span>
+                        <span class="text-[10px] tracking-[0.2em] uppercase text-amber-400/90 font-medium">Diplomado en Ciencia y Tecnología Cervecera</span>
                     </div>
 
                     <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none tracking-tight mb-6">
-                        La Ciencia Detrás de la
-                        <span class="block mt-2">
-                            <span class="text-amber-400">Cerveza Clara</span>
-                        </span>
-                        <span class="block mt-1">y <span class="text-amber-600">Oscura</span></span>
+                        Secretos
+                        <span class="block mt-1 text-amber-400">Científicos</span>
+                        <span class="block mt-1">de la <span class="italic">Fermentación</span></span>
                     </h1>
 
                     <p class="text-neutral-400 text-lg font-light leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
-                        Descubre los secretos químicos y biológicos que definen el color, aroma y sabor de tu cerveza favorita. Una clase que cambiará tu forma de entender la cervecera.
+                        Descubre los procesos bioquímicos que transforman el mosto en cerveza. Una clase magistral sobre levaduras, metabolismo y los compuestos que definen el carácter de cada estilo cervecero.
                     </p>
 
                     <!-- Date/Time Info -->
@@ -154,14 +192,14 @@
                             <span class="iconify text-amber-400 text-xl" data-icon="mdi:calendar-clock"></span>
                             <div>
                                 <p class="text-xs text-neutral-500 uppercase tracking-wider">Fecha</p>
-                                <p class="text-sm font-medium">Viernes 29 de Mayo</p>
+                                <p class="text-sm font-medium">Jueves 6 de Agosto</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-3">
                             <span class="iconify text-amber-400 text-xl" data-icon="mdi:clock-outline"></span>
                             <div>
                                 <p class="text-xs text-neutral-500 uppercase tracking-wider">Hora</p>
-                                <p class="text-sm font-medium">19:30 hrs</p>
+                                <p class="text-sm font-medium">6:30 PM · Hora California</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-3">
@@ -174,7 +212,7 @@
                     </div>
 
                     <!-- CTA Button -->
-                    <a href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener"
+                    <a href="https://chat.whatsapp.com/F38jOUYcGIlEr1lafZLeQ8" target="_blank" rel="noopener"
                        class="cta-btn animate-pulse-glow inline-flex items-center gap-3 px-10 py-5 bg-amber-400 text-dark-900 text-sm font-bold uppercase tracking-widest rounded-full hover:bg-amber-500 hover:scale-105 transition-all duration-300 group">
                         <span class="iconify text-2xl" data-icon="mdi:whatsapp"></span>
                         Reservar Mi Lugar Gratis
@@ -191,14 +229,14 @@
                 <div class="relative flex justify-center lg:justify-end">
                     <div class="animate-float poster-glow relative">
                         <div class="absolute -inset-4 bg-gradient-to-br from-amber-400/20 via-transparent to-amber-600/20 rounded-2xl blur-xl"></div>
-                        <img src="https://z-cdn-media.chatglm.cn/files/9f5e3d55-1b67-4ca7-ba8d-82f47cb926b9.png?auth_key=1879293872-d0bbcb2578ef4597924e40b0f00999c5-0-74226e1f82f6453f49b120006a8bbe4c"
-                             alt="Webinar La Ciencia Detrás de la Cerveza Clara y Oscura"
+                        <img src="https://z-cdn-media.chatglm.cn/files/9e194591-4b8b-4327-9205-0111620ec9e3.png?auth_key=1885609874-a31198412fa74bc8a03e3d685bbe4a7e-0-399057910e650079507d105dae7a5a68"
+                             alt="Webinar Secretos Científicos de la Fermentación"
                              class="relative rounded-2xl shadow-2xl max-w-md w-full border border-white/10">
                     </div>
                     <!-- Floating Badge -->
                     <div class="absolute -bottom-4 -left-4 sm:left-4 bg-dark-900/90 backdrop-blur-md border border-amber-400/30 rounded-xl px-4 py-3 shadow-2xl">
-                        <p class="text-amber-400 font-serif text-2xl font-semibold">100%</p>
-                        <p class="text-xs text-neutral-400 uppercase tracking-wider">Gratuito</p>
+                        <p class="text-amber-400 font-serif text-2xl font-semibold">¡GRATIS!</p>
+                        <p class="text-xs text-neutral-400 uppercase tracking-wider">Sin costo</p>
                     </div>
                 </div>
             </div>
@@ -252,37 +290,37 @@
                 <!-- Card 1 -->
                 <div class="benefit-card bg-white/[0.03] border border-white/10 rounded-2xl p-8 group cursor-default">
                     <div class="w-14 h-14 rounded-full bg-amber-400/10 border border-amber-400/20 flex items-center justify-center mb-6 group-hover:bg-amber-400/20 transition-colors duration-500">
-                        <span class="iconify text-amber-400 text-2xl" data-icon="mdi:palette-outline"></span>
+                        <span class="iconify text-amber-400 text-2xl" data-icon="mdi:bacteria-outline"></span>
                     </div>
-                    <h3 class="font-serif text-xl tracking-tight mb-3">Formación del Color</h3>
-                    <p class="text-neutral-400 text-sm leading-relaxed">Comprende los procesos químicos que determinan el color de la cerveza, desde el malteado hasta el producto final en tu vaso.</p>
+                    <h3 class="font-serif text-xl tracking-tight mb-3">Bioquímica de la Levadura</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed">Comprende el metabolismo de las levaduras: cómo consumen azúcares, generan etanol y producen los compuestos que dan vida a la cerveza.</p>
                 </div>
 
                 <!-- Card 2 -->
                 <div class="benefit-card bg-white/[0.03] border border-white/10 rounded-2xl p-8 group cursor-default">
                     <div class="w-14 h-14 rounded-full bg-amber-400/10 border border-amber-400/20 flex items-center justify-center mb-6 group-hover:bg-amber-400/20 transition-colors duration-500">
-                        <span class="iconify text-amber-400 text-2xl" data-icon="mdi:grain"></span>
+                        <span class="iconify text-amber-400 text-2xl" data-icon="mdi:atom"></span>
                     </div>
-                    <h3 class="font-serif text-xl tracking-tight mb-3">El Rol de la Malta</h3>
-                    <p class="text-neutral-400 text-sm leading-relaxed">Descubre cómo los diferentes tipos de malta influyen en el cuerpo, dulzor y complejidad de cada estilo cervecero.</p>
+                    <h3 class="font-serif text-xl tracking-tight mb-3">Compuestos Aromáticos</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed">Descubre los ésteres, fenoles y aceites fusel que se forman durante la fermentación y que definen el perfil sensorial de cada estilo.</p>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="benefit-item benefit-card bg-white/[0.03] border border-white/10 rounded-2xl p-8 group cursor-default">
+                <div class="benefit-card bg-white/[0.03] border border-white/10 rounded-2xl p-8 group cursor-default">
                     <div class="w-14 h-14 rounded-full bg-amber-400/10 border border-amber-400/20 flex items-center justify-center mb-6 group-hover:bg-amber-400/20 transition-colors duration-500">
-                        <span class="iconify text-amber-400 text-2xl" data-icon="mdi:flask-outline"></span>
+                        <span class="iconify text-amber-400 text-2xl" data-icon="mdi:thermometer-lines"></span>
                     </div>
-                    <h3 class="font-serif text-xl tracking-tight mb-3">Fermentación y Sabor</h3>
-                    <p class="text-neutral-400 text-sm leading-relaxed">Explora cómo la fermentación transforma los azúcares y genera los compuestos aromáticos que definen el perfil sensorial.</p>
+                    <h3 class="font-serif text-xl tracking-tight mb-3">Control de Variables</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed">Aprende cómo la temperatura, oxígeno, pH y nutrientes afectan el desempeño de la levadura y la calidad final del producto.</p>
                 </div>
 
                 <!-- Card 4 -->
                 <div class="benefit-card bg-white/[0.03] border border-white/10 rounded-2xl p-8 group cursor-default">
                     <div class="w-14 h-14 rounded-full bg-amber-400/10 border border-amber-400/20 flex items-center justify-center mb-6 group-hover:bg-amber-400/20 transition-colors duration-500">
-                        <span class="iconify text-amber-400 text-2xl" data-icon="mdi:compare-horizontal"></span>
+                        <span class="iconify text-amber-400 text-2xl" data-icon="mdi:flask-outline"></span>
                     </div>
-                    <h3 class="font-serif text-xl tracking-tight mb-3">Análisis Comparativo</h3>
-                    <p class="text-neutral-400 text-sm leading-relaxed">Análisis lado a lado de cervezas claras y oscuras: diferencias en ingredientes, procesos y resultados organolépticos.</p>
+                    <h3 class="font-serif text-xl tracking-tight mb-3">Fermentación vs. Maduración</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed">Analiza las fases del proceso fermentativo, desde la atenuación hasta el acondicionamiento, y su impacto en sabor, claridad y estabilidad.</p>
                 </div>
             </div>
         </div>
@@ -307,11 +345,6 @@
                     <p class="text-neutral-400 text-sm leading-relaxed">Haz clic en el botón y únete al grupo de WhatsApp donde compartiremos toda la información.</p>
                 </div>
 
-                <!-- Connector -->
-                <div class="hidden md:flex items-start justify-center pt-10">
-                    <div class="w-20 h-px bg-gradient-to-r from-amber-400/30 to-amber-400/30"></div>
-                </div>
-
                 <!-- Step 2 -->
                 <div class="text-center group">
                     <div class="relative mx-auto w-20 h-20 rounded-full border border-amber-400/30 bg-amber-400/5 flex items-center justify-center mb-6 group-hover:border-amber-400/60 transition-colors duration-500">
@@ -320,21 +353,53 @@
                     <h3 class="font-serif text-xl tracking-tight mb-3">Recibe el Enlace</h3>
                     <p class="text-neutral-400 text-sm leading-relaxed">Te enviaremos el enlace de Zoom directamente en el grupo antes de la clase.</p>
                 </div>
-            </div>
 
-            <!-- Step 3 standalone centered -->
-            <div class="text-center mt-8 group">
-                <div class="relative mx-auto w-20 h-20 rounded-full border border-amber-400/30 bg-amber-400/5 flex items-center justify-center mb-6 group-hover:border-amber-400/60 transition-colors duration-500">
-                    <span class="font-serif text-3xl text-amber-400">3</span>
+                <!-- Step 3 -->
+                <div class="text-center group">
+                    <div class="relative mx-auto w-20 h-20 rounded-full border border-amber-400/30 bg-amber-400/5 flex items-center justify-center mb-6 group-hover:border-amber-400/60 transition-colors duration-500">
+                        <span class="font-serif text-3xl text-amber-400">3</span>
+                    </div>
+                    <h3 class="font-serif text-xl tracking-tight mb-3">Disfruta el Webinar</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed">Conéctate el jueves 6 de agosto a las 6:30 PM (hora California) y domina la ciencia de la fermentación.</p>
                 </div>
-                <h3 class="font-serif text-xl tracking-tight mb-3">Disfruta el Webinar</h3>
-                <p class="text-neutral-400 text-sm leading-relaxed max-w-md mx-auto">Conéctate el viernes 29 de mayo a las 19:30 y aprende la ciencia detrás de tu cerveza favorita.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diploma Highlight Section -->
+    <section class="relative py-20 px-6 bg-dark-900 border-y border-white/5 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-amber-400/8 to-transparent rounded-full blur-3xl"></div>
+        <div class="relative z-10 max-w-3xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-amber-400/30 rounded-full bg-amber-400/5 backdrop-blur-sm mb-6">
+                <span class="iconify text-amber-400 text-sm" data-icon="mdi:school"></span>
+                <span class="text-xs tracking-widest uppercase text-amber-400 font-medium">Formación Profesional</span>
+            </div>
+            <h2 class="font-serif text-3xl sm:text-4xl tracking-tight mb-4">
+                Parte del <span class="text-amber-400">Diplomado</span><br>
+                en Ciencia y Tecnología Cervecera
+            </h2>
+            <p class="text-neutral-400 text-base font-light leading-relaxed mb-8 max-w-xl mx-auto">
+                Este webinar gratuito es una introducción a nuestro programa completo de formación cervecera profesional. Conoce la ciencia detrás de cada cerveza de la mano de expertos.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="flex items-center gap-2 text-sm text-neutral-300">
+                    <span class="iconify text-amber-400" data-icon="mdi:check-circle"></span>
+                    Contenido científico riguroso
+                </div>
+                <div class="flex items-center gap-2 text-sm text-neutral-300">
+                    <span class="iconify text-amber-400" data-icon="mdi:check-circle"></span>
+                    Aplicación práctica
+                </div>
+                <div class="flex items-center gap-2 text-sm text-neutral-300">
+                    <span class="iconify text-amber-400" data-icon="mdi:check-circle"></span>
+                    Enfoque profesional
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Social Proof / Urgency -->
-    <section class="relative py-20 px-6 bg-dark-900 border-y border-white/5">
+    <section class="relative py-20 px-6 bg-dark-950">
         <div class="max-w-4xl mx-auto text-center">
             <div class="flex flex-wrap justify-center gap-6 mb-12">
                 <div class="bg-white/[0.03] border border-white/10 rounded-2xl px-8 py-6 min-w-[160px]">
@@ -355,7 +420,7 @@
             <div class="max-w-2xl mx-auto bg-white/[0.03] border border-white/10 rounded-2xl p-8 md:p-10">
                 <span class="iconify text-amber-400/30 text-5xl mb-4 block" data-icon="mdi:format-quote-open"></span>
                 <p class="font-serif text-xl md:text-2xl text-neutral-200 leading-relaxed mb-6 italic">
-                    "Entender la ciencia detrás de cada sorbo transforma completamente la experiencia cervecera. Este webinar abre esa puerta."
+                    "La fermentación es donde la ciencia se convierte en arte. Entenderla es dominar el alma de la cerveza."
                 </p>
                 <div class="w-12 h-px bg-amber-400/40 mx-auto mb-4"></div>
                 <p class="text-sm text-neutral-400">— Comunidad Cervecera</p>
@@ -379,10 +444,10 @@
                 No te quedes fuera de esta clase
             </h2>
             <p class="text-neutral-400 text-lg font-light leading-relaxed mb-10 max-w-xl mx-auto">
-                Únete ahora al grupo de WhatsApp y asegura tu lugar en el webinar gratuito sobre la ciencia de la cerveza.
+                Únete ahora al grupo de WhatsApp y asegura tu lugar en el webinar gratuito sobre los secretos científicos de la fermentación.
             </p>
 
-            <a href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener"
+            <a href="https://chat.whatsapp.com/F38jOUYcGIlEr1lafZLeQ8" target="_blank" rel="noopener"
                class="cta-btn animate-pulse-glow inline-flex items-center gap-3 px-12 py-5 bg-amber-400 text-dark-900 text-sm font-bold uppercase tracking-widest rounded-full hover:bg-amber-500 hover:scale-105 transition-all duration-300 group shadow-2xl">
                 <span class="iconify text-2xl" data-icon="mdi:whatsapp"></span>
                 Unirme al Grupo de WhatsApp
@@ -400,35 +465,37 @@
     <footer class="bg-dark-950 border-t border-white/5 py-12 px-6">
         <div class="max-w-7xl mx-auto text-center">
             <div class="flex items-center justify-center gap-3 mb-4">
-                <span class="iconify text-amber-400 text-xl" data-icon="mdi:beer"></span>
-                <span class="font-serif text-lg tracking-tight">Webinar Cervecero</span>
+                <span class="iconify text-amber-400 text-xl" data-icon="mdi:flask-round-bottom"></span>
+                <span class="font-serif text-lg tracking-tight">Webinar de Fermentación</span>
             </div>
-            <p class="text-neutral-500 text-sm mb-6">Viernes 29 de Mayo • 19:30 hrs • Zoom</p>
+            <p class="text-neutral-500 text-sm mb-2">Jueves 6 de Agosto • 6:30 PM Hora California • Zoom</p>
+            <p class="text-neutral-600 text-xs mb-6">Diplomado en Ciencia y Tecnología Cervecera</p>
             <div class="flex justify-center gap-4">
-                <a href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener"
+                <a href="https://chat.whatsapp.com/F38jOUYcGIlEr1lafZLeQ8" target="_blank" rel="noopener"
                    class="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:border-amber-400/40 hover:text-amber-400 transition-all duration-300">
                     <span class="iconify text-lg" data-icon="mdi:whatsapp"></span>
                 </a>
             </div>
-            <p class="text-neutral-600 text-xs mt-8">© 2025 Webinar Cervecero. Todos los derechos reservados.</p>
+            <p class="text-neutral-600 text-xs mt-8">© 2025 Webinar de Fermentación. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <!-- Floating WhatsApp Button (Mobile) -->
-    <a href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener"
+    <a href="https://chat.whatsapp.com/F38jOUYcGIlEr1lafZLeQ8" target="_blank" rel="noopener"
        class="fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300 sm:hidden">
         <span class="iconify text-white text-3xl" data-icon="mdi:whatsapp"></span>
     </a>
 
     <script>
         // ============ COUNTDOWN TIMER ============
-        // Target: Next May 29th at 19:30
+        // Target: August 6th at 6:30 PM California Time (PDT = UTC-7)
         function getNextTargetDate() {
             const now = new Date();
-            let year = now.getFullYear();
-            let target = new Date(year, 4, 29, 19, 30, 0); // Month is 0-indexed, 4 = May
+            // August 6, 2025 at 6:30 PM PDT = August 7, 2025 01:30 AM UTC
+            let target = new Date(Date.UTC(2025, 7, 7, 1, 30, 0)); // Month is 0-indexed, 7 = August
+            // If that date already passed, use next year
             if (now > target) {
-                target = new Date(year + 1, 4, 29, 19, 30, 0);
+                target = new Date(Date.UTC(2026, 7, 7, 1, 30, 0));
             }
             return target;
         }
