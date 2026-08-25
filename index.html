@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cálculos Cerveceros · Webinario · Agosto 2026</title>
-<meta name="description" content="Webinario gratuito sobre cálculos cerveceros: densidad, IBU, atenuación, ABV, color, carbonatación, eficiencia. Martes 18 de agosto de 2026, 19:30 hrs CDMX, por Zoom.">
+<title>Cómo Formular Tu Receta de Cerveza · Webinario · Agosto 2026</title>
+<meta name="description" content="Webinario gratuito: cómo formular tu propia receta de cerveza desde cero. Apto para principiantes y cerveceros caseros. Selección de estilo, ingredientes y cálculo de parámetros. Lunes 31 de agosto de 2026, 7:30 PM CDMX, por Zoom.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -125,7 +125,7 @@ img { display: block; max-width: 100%; }
 .hero-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(3.6rem, 13vw, 11rem);
+  font-size: clamp(3.2rem, 11vw, 9.5rem);
   line-height: 0.93;
   letter-spacing: -0.025em;
   margin-bottom: 3rem;
@@ -138,6 +138,7 @@ img { display: block; max-width: 100%; }
 }
 .hero.is-in .hero-title .line-mask:nth-child(1) .line { transform: translateY(0); transition-delay: 0.3s; }
 .hero.is-in .hero-title .line-mask:nth-child(2) .line { transform: translateY(0); transition-delay: 0.46s; }
+.hero.is-in .hero-title .line-mask:nth-child(3) .line { transform: translateY(0); transition-delay: 0.62s; }
 .hero-title .italic { font-style: italic; }
 .hero-title .small {
   font-size: 0.42em;
@@ -691,7 +692,7 @@ img { display: block; max-width: 100%; }
 <div class="noise-overlay" aria-hidden="true"></div>
 
 <header class="top-bar">
-  <div class="brand">Cálculos Cerveceros</div>
+  <div class="brand">Formular Tu Receta</div>
   <nav class="nav">
     <a href="#poster">Cartel</a>
     <a href="#detalles">Detalles</a>
@@ -702,10 +703,11 @@ img { display: block; max-width: 100%; }
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="hero">
-  <div class="hero-label">Webinario · Edición única · CDMX</div>
+  <div class="hero-label">Webinario gratuito · Para principiantes y entusiastas · CDMX</div>
   <h1 class="hero-title">
-    <span class="line-mask"><span class="line">Cálculos</span></span>
-    <span class="line-mask"><span class="line"><span class="italic">Cerveceros</span><span class="small"> n.° 01</span></span></span>
+    <span class="line-mask"><span class="line">Cómo formular</span></span>
+    <span class="line-mask"><span class="line">tu propia <span class="italic">receta</span></span></span>
+    <span class="line-mask"><span class="line">de cerveza<span class="small"> desde cero</span></span></span>
   </h1>
   <p class="hero-sub">
     <span id="typewriter"></span><span class="hero-caret" id="caret"></span>
@@ -713,11 +715,11 @@ img { display: block; max-width: 100%; }
   <div class="hero-meta">
     <div class="hero-meta-item">
       <span class="meta-label">Fecha</span>
-      <span class="meta-val">Martes 18 · 08 · 26</span>
+      <span class="meta-val">Lunes 31 · 08 · 26</span>
     </div>
     <div class="hero-meta-item">
       <span class="meta-label">Horario</span>
-      <span class="meta-val">19:30 hrs <em>CDMX</em></span>
+      <span class="meta-val">7:30 PM <em>CDMX</em></span>
     </div>
     <div class="hero-meta-item">
       <span class="meta-label">Plataforma</span>
@@ -740,20 +742,20 @@ img { display: block; max-width: 100%; }
     <div class="poster-image-wrap">
       <div class="poster-tag">Imagen 01 · Cartel</div>
       <img class="poster-image" id="poster-img"
-           src="https://z-cdn-media.chatglm.cn/files/d87e6437-8269-4ab9-8cc4-f259b0aba39a.png?auth_key=1886546233-2015fb485f9f499b9a2f2a7fc62b1b9a-0-ddf493105b201d6a605774abbcdb60d6"
-           alt="Cartel del webinario Cálculos Cerveceros — 18 de agosto de 2026">
+           src="https://z-cdn-media.chatglm.cn/files/718fd5b7-c0bd-4187-a14d-7031abb781b7.png?auth_key=1887669044-d09cf9d0866f4ac18dea7678db431f75-0-265bec04c133a1fbf6d4347b0c771106"
+           alt="Cartel del webinario gratuito — Cómo formular tu propia receta de cerveza desde cero, 31 de agosto de 2026">
       <div class="poster-credit">
         <span>Cartel · ed. 2026</span>
-        <span>Cálculos Cerveceros · Vol. 01</span>
+        <span>Formular Tu Receta · Vol. 01</span>
       </div>
     </div>
     <div class="poster-text reveal">
       <div class="section-label"><span class="num">§ 01</span> Sobre la sesión</div>
-      <h2>Una hora para entender <em>los números</em> que de verdad cambian tu cerveza.</h2>
-      <p>Densidad, atenuación, amargor, color, carbonatación: cada cálculo es una decisión que se queda en el vaso. En esta sesión en vivo los repasamos uno por uno, en orden, con ejemplos reales de receta.</p>
-      <p>No es una clase teórica. Es un cuaderno de trabajo: abres tu receta, anotas, ajustas. Al final sabes exactamente qué mover en tu siguiente lote.</p>
+      <h2>Una hora para construir <em>tu receta</em> desde cero, paso a paso.</h2>
+      <p>Seleccionar el estilo, elegir los ingredientes, calcular los parámetros: cada decisión define el carácter de tu cerveza. En esta sesión en vivo lo recorremos todo, en orden, con ejemplos prácticos.</p>
+      <p>No es teoría abstracta. Es un cuaderno de trabajo pensado para principiantes y cerveceros caseros: abres tu receta, la diseñas, la equilibras. Al final sabrás exactamente cómo formular tu próxima cerveza con criterio.</p>
       <a href="#registro" class="inline-link">Quiero mi lugar <span class="arr">→</span></a>
-      <div class="caption">— Una sesión. Una hora. Una mejor cerveza.</div>
+      <div class="caption">— Una sesión. Una hora. Una receta equilibrada.</div>
     </div>
   </div>
 </section>
@@ -762,12 +764,12 @@ img { display: block; max-width: 100%; }
 <section class="manifesto" id="manifiesto">
   <div class="manifesto-label reveal">Manifiesto</div>
   <p class="manifesto-text">
-    <span class="line"><span class="inner">La cerveza se cocina con agua, malta,</span></span>
-    <span class="line"><span class="inner">lúpulo y levadura. Pero se decide</span></span>
-    <span class="line"><span class="inner">con <em>números</em>. Sin densidad no hay cuerpo.</span></span>
-    <span class="line"><span class="inner">Sin IBU no hay balance. Sin eficiencia,</span></span>
-    <span class="line"><span class="inner">no hay margen. Esta sesión es para quien</span></span>
-    <span class="line"><span class="inner">ya no quiere cervecería a ciegas.</span></span>
+    <span class="line"><span class="inner">Toda cerveza empieza con una idea:</span></span>
+    <span class="line"><span class="inner">un estilo, un aroma, un cuerpo que buscas.</span></span>
+    <span class="line"><span class="inner">Pero entre la idea y el vaso hay <em>números</em>.</span></span>
+    <span class="line"><span class="inner">Densidad, color, amargor, atenuación.</span></span>
+    <span class="line"><span class="inner">Ideal para principiantes y para quien</span></span>
+    <span class="line"><span class="inner">quiere dejar de copiar y empezar a <em>formular</em>.</span></span>
   </p>
 </section>
 
@@ -780,12 +782,12 @@ img { display: block; max-width: 100%; }
   <div class="specs-table">
     <div class="spec-row reveal">
       <div class="key">Fecha</div>
-      <div class="val">Martes 18 de agosto de 2026</div>
+      <div class="val">Lunes 31 de agosto de 2026</div>
       <div class="note">Una sola emisión en vivo. No se graba ni se retransmite.</div>
     </div>
     <div class="spec-row reveal">
       <div class="key">Horario</div>
-      <div class="val">19:30 — 20:45 hrs <em>(CDMX, GMT-6)</em></div>
+      <div class="val">7:30 — 8:45 PM <em>(CDMX, GMT-6)</em></div>
       <div class="note">Setenta y cinco minutos: sesenta de contenido, quince de preguntas.</div>
     </div>
     <div class="spec-row reveal">
@@ -800,8 +802,8 @@ img { display: block; max-width: 100%; }
     </div>
     <div class="spec-row reveal">
       <div class="key">Nivel</div>
-      <div class="val">Intermedio</div>
-      <div class="note">Para cerveceros caseros con al menos cinco lotes y micros en proceso.</div>
+      <div class="val">Principiantes en adelante</div>
+      <div class="note">No necesitas experiencia previa formulando. Pensado para principiantes y cerveceros caseros que buscan estructurar su método.</div>
     </div>
     <div class="spec-row reveal">
       <div class="key">Cupo</div>
@@ -820,7 +822,7 @@ img { display: block; max-width: 100%; }
 <section class="pull-quote">
   <div class="quote-mark reveal">"</div>
   <blockquote class="reveal">
-    Una buena cerveza no se adivina. Se cuenta, se pesa y se anota. El resto es suerte — y la suerte se acaba.
+    Una receta equilibrada no se copia. Se diseña, se pesa y se calcula. El resto es imitación — y la imitación no enseña.
   </blockquote>
   <div class="cite reveal">— Cuaderno de carrera · nota 042</div>
 </section>
@@ -829,7 +831,7 @@ img { display: block; max-width: 100%; }
 <section class="cta-section" id="registro">
   <div class="cta-label reveal">Paso final · Registro</div>
   <h2 class="reveal">Únete al grupo.<br><em>Recibe la liga.</em></h2>
-  <p class="lede reveal">Para recibir el enlace de Zoom y el material de la sesión, únete al grupo de WhatsApp. Ahí enviaremos la liga de acceso una hora antes de empezar, junto con el cuaderno de cálculos en PDF.</p>
+  <p class="lede reveal">Para recibir el enlace de Zoom y el material de la sesión, únete al grupo de WhatsApp. Ahí enviaremos la liga de acceso una hora antes de empezar, junto con el cuaderno de formulación en PDF.</p>
   <a href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx"
      target="_blank"
      rel="noopener noreferrer"
@@ -841,7 +843,7 @@ img { display: block; max-width: 100%; }
     <span class="arrow">→</span>
   </a>
   <div class="cta-fine reveal">
-    ¿No usas WhatsApp? Escríbenos a <a href="mailto:hola@calculoscerveceros.mx">hola@calculoscerveceros.mx</a> y te enviamos la liga directamente.
+    ¿No usas WhatsApp? Escríbenos a <a href="mailto:hola@formulareceta.mx">hola@formulareceta.mx</a> y te enviamos la liga directamente.
   </div>
 
   <div class="cta-steps">
@@ -853,12 +855,12 @@ img { display: block; max-width: 100%; }
     <div class="cta-step reveal">
       <div class="step-num">ii.</div>
       <h4>Recibes la liga</h4>
-      <p>El enlace de Zoom se publica en el grupo una hora antes de la sesión, junto con el cuaderno de cálculos en PDF.</p>
+      <p>El enlace de Zoom se publica en el grupo una hora antes de la sesión, junto con el cuaderno de formulación en PDF.</p>
     </div>
     <div class="cta-step reveal">
       <div class="step-num">iii.</div>
       <h4>Te conectas en vivo</h4>
-      <p>Martes 18 de agosto, 19:30 hrs (CDMX). Sesenta minutos de contenido, quince de preguntas. Sin grabación.</p>
+      <p>Lunes 31 de agosto, 7:30 PM (CDMX). Sesenta minutos de contenido, quince de preguntas. Sin grabación.</p>
     </div>
   </div>
 </section>
@@ -867,7 +869,7 @@ img { display: block; max-width: 100%; }
 <footer class="site-footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      Cálculos <em>Cerveceros</em>
+      Formular Tu <em>Receta</em>
       <span class="small">Webinario · Vol. 01 · Ago 2026</span>
     </div>
     <div class="footer-col">
@@ -881,7 +883,7 @@ img { display: block; max-width: 100%; }
       <h4>Acceso</h4>
       <ul>
         <li><a href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener">Grupo WhatsApp</a></li>
-        <li><a href="mailto:hola@calculoscerveceros.mx">Correo</a></li>
+        <li><a href="mailto:hola@formulareceta.mx">Correo</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -894,8 +896,8 @@ img { display: block; max-width: 100%; }
     </div>
   </div>
   <div class="footer-bottom">
-    <div>© 2026 Cálculos Cerveceros · Cuaderno de sesión</div>
-    <div>Diseñado para beber con números</div>
+    <div>© 2026 Formular Tu Receta · Cuaderno de sesión</div>
+    <div>Diseñado para crear con criterio</div>
   </div>
 </footer>
 
@@ -930,7 +932,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* === Typewriter on hero subtitle === */
   const typewriter = document.getElementById('typewriter');
   const caret = document.getElementById('caret');
-  const SRC = 'Haz mejores cervezas con números que sí importan.';
+  const SRC = 'Aprende a seleccionar estilo, ingredientes y parámetros con criterio.';
   if (typewriter && caret) {
     let i = 0;
     setTimeout(() => {
