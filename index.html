@@ -1,999 +1,388 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cómo Formular Tu Receta de Cerveza · Webinario · Agosto 2026</title>
-<meta name="description" content="Webinario gratuito: cómo formular tu propia receta de cerveza desde cero. Apto para principiantes y cerveceros caseros. Selección de estilo, ingredientes y cálculo de parámetros. Lunes 31 de agosto de 2026, 7:30 PM CDMX, por Zoom.">
+<title>Webinar Gratuito · De la miel a la botella | Hidromiel de Calidad</title>
+<meta name="description" content="Webinar gratuito: aprende qué miel elegir, cómo controlar la fermentación y elaborar una hidromiel con mejor aroma, sabor y estabilidad. Jueves 17 de septiembre de 2026, 7:30 p.m. (CDMX).">
+<meta property="og:title" content="Webinar Gratuito: De la miel a la botella">
+<meta property="og:description" content="Los secretos para elaborar una hidromiel de calidad. Cupo limitado.">
+<meta property="og:image" content="https://i.postimg.cc/pTD7fP5F/webinar-hidro.png">
 
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐝</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&display=swap">
-
-<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'></script>
-<script src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js'></script>
-<script src='https://cdn.jsdelivr.net/npm/lenis@1.3.13/dist/lenis.min.js'></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=Manrope:wght@400;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg: #ffffff;
-  --text: #000000;
-  --text-soft: rgba(0,0,0,0.72);
-  --text-mute: rgba(0,0,0,0.5);
-  --text-faint: rgba(0,0,0,0.3);
-  --line: rgba(0,0,0,0.12);
-  --line-strong: rgba(0,0,0,0.22);
-  --serif: 'Times New Roman', 'Songti SC', serif;
-  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'PingFang SC', sans-serif;
-  --mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', monospace;
-  --hand: 'Caveat', cursive;
-  --ease-quiet: cubic-bezier(.22, 1, .36, 1);
-  --ease-precise: cubic-bezier(.4, 0, .2, 1);
-  --ease-emphasis: cubic-bezier(.16, 1, .3, 1);
+:root{
+  --negro:#0c0a07; --negro-2:#141109; --tarjeta:#1a1610;
+  --oro:#f2b705; --oro-claro:#ffd45e; --miel:#e89b2d;
+  --crema:#f6efe0; --texto:#f3eee2; --muted:#b8b09c;
+  --wa:#25d366; --borde:rgba(242,183,5,.22);
+  --sombra:0 24px 60px rgba(0,0,0,.55); --radio:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:var(--negro);color:var(--texto);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fraunces',serif}
+.script{font-family:'Caveat',cursive}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+::selection{background:var(--oro);color:#1a1400}
+.contenedor{max-width:1140px;margin:0 auto;padding:0 24px}
+section{position:relative}
+
+.fondo-panal{
+  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cpath d='M28 0L56 16v32L28 64 0 48V16zM28 64l28 16v32' fill='none' stroke='%23f2b705' stroke-width='1.4'/%3E%3C/svg%3E");
+}
+.cejilla{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--oro);margin-bottom:16px}
+.cejilla::before{content:'';width:34px;height:1px;background:var(--oro)}
+
+/* ===== BOTONES ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 32px;border-radius:60px;border:none;cursor:pointer;font-family:'Manrope',sans-serif;font-weight:800;font-size:.98rem;letter-spacing:.3px;transition:transform .22s ease,box-shadow .22s ease}
+.btn-wa{background:var(--wa);color:#052b12;box-shadow:0 10px 30px rgba(37,211,102,.28)}
+.btn-wa:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(37,211,102,.42)}
+.btn-sm{padding:11px 22px;font-size:.86rem}
+.btn-lg{padding:19px 44px;font-size:1.08rem}
+@keyframes pulso{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+.pulso{animation:pulso 2.4s infinite}
+
+/* ===== NAV ===== */
+.mini-aviso{background:linear-gradient(90deg,#3a2a05,#6b4c08,#3a2a05);text-align:center;padding:9px 16px;font-size:.82rem;font-weight:700;color:#ffe9ad}
+.mini-aviso strong{color:#fff}
+.nav{position:sticky;top:0;z-index:80;background:rgba(12,10,7,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--borde)}
+.nav-inner{max-width:1140px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1rem;letter-spacing:1.5px}
+.logo .ico{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,var(--oro),var(--miel));font-size:1.15rem}
+.logo span{color:var(--oro)}
+.nav-links{display:flex;gap:30px;font-size:.88rem;font-weight:600;color:var(--muted)}
+.nav-links a:hover{color:var(--oro)}
+
+/* ===== HERO ===== */
+.hero{z-index:1;max-width:1140px;margin:0 auto;padding:80px 24px 70px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(2rem,4.2vw,3.3rem);line-height:1.1;font-weight:900}
+.hero h1 .acento{display:block;font-family:'Caveat',cursive;font-weight:700;font-size:clamp(2.3rem,4.8vw,3.7rem);color:var(--oro);line-height:1.05;margin-bottom:6px}
+.hero h1 .subrayado{color:var(--oro);background:linear-gradient(transparent 64%,rgba(242,183,5,.25) 64%);padding:0 4px}
+.hero .lead{margin-top:22px;color:var(--muted);font-size:1.05rem;max-width:520px}
+.hero .lead strong{color:var(--texto)}
+.hero-datos{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.chip{display:flex;align-items:center;gap:9px;background:var(--tarjeta);border:1px solid var(--borde);border-radius:13px;padding:11px 16px;font-size:.88rem;font-weight:700}
+.chip svg{color:var(--oro);flex-shrink:0}
+.hero-cta{margin-top:34px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.hero-nota{font-size:.84rem;color:var(--muted)}
+.hero-nota b{color:var(--oro)}
+
+/* ===== PÓSTER ===== */
+.poster-zona{position:relative}
+.poster-marco{
+  border-radius:22px;overflow:hidden;position:relative;
+  border:1px solid rgba(242,183,5,.4);
+  box-shadow:var(--sombra),0 0 80px rgba(242,183,5,.1);
+  transform:rotate(1.2deg);transition:transform .5s ease;
+  background:var(--tarjeta);
+}
+.poster-marco:hover{transform:rotate(0deg) scale(1.01)}
+.poster-marco img{width:100%;height:auto}
+.etiqueta-flotante{
+  position:absolute;z-index:3;bottom:-20px;left:-16px;
+  background:var(--oro);color:#1a1400;font-family:'Caveat',cursive;font-weight:700;
+  font-size:1.35rem;padding:12px 26px;border-radius:50px 50px 50px 8px;
+  box-shadow:0 14px 30px rgba(0,0,0,.5);transform:rotate(-3deg);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-html, body {
-  background: var(--bg); color: var(--text);
-  font-family: var(--sans);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-body { overflow-x: hidden; line-height: 1.65; font-size: 16px; }
-a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
-::selection { background: #000; color: #fff; }
+/* ===== CONFIANZA ===== */
+.confianza{z-index:1;border-top:1px solid var(--borde);border-bottom:1px solid var(--borde);background:rgba(20,17,9,.6)}
+.confianza-inner{max-width:1140px;margin:0 auto;padding:26px 24px;display:flex;justify-content:space-around;gap:20px;flex-wrap:wrap;text-align:center}
+.confianza b{display:block;font-family:'Fraunces',serif;font-size:1.7rem;font-weight:900;color:var(--oro)}
+.confianza span{font-size:.8rem;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
 
-/* ============ Noise overlay ============ */
-.noise-overlay {
-  position: fixed; inset: 0; pointer-events: none; z-index: 9999;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");
-  animation: noise 20s linear infinite;
-  mix-blend-mode: multiply;
-}
-@keyframes noise {
-  0%,100% { transform: translate(0,0); }
-  20% { transform: translate(-10%, 5%); }
-  50% { transform: translate(-10%, 5%); }
-  80% { transform: translate(-15%, 0); }
-}
+/* ===== TEMPORIZADOR ===== */
+.timer{z-index:1;padding:90px 0;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(242,183,5,.08),transparent 60%)}
+.timer h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:900}
+.fecha-linea{margin-top:12px;color:var(--oro);font-weight:700;font-size:1.02rem}
+.reloj{display:flex;justify-content:center;gap:16px;margin-top:42px;flex-wrap:wrap}
+.unidad{min-width:118px;padding:26px 14px 20px;border-radius:var(--radio);background:linear-gradient(180deg,var(--tarjeta),var(--negro-2));border:1px solid var(--borde);position:relative;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.4)}
+.unidad::before{content:'';position:absolute;top:0;left:20%;right:20%;height:3px;border-radius:3px;background:linear-gradient(90deg,transparent,var(--oro),transparent)}
+.unidad .num{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.3rem,5vw,3.3rem);color:var(--oro);line-height:1;font-variant-numeric:tabular-nums}
+.unidad .etq{margin-top:9px;font-size:.72rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+.timer .nota{margin-top:30px;color:var(--muted);font-size:.94rem}
+.timer .nota strong{color:var(--texto)}
+.timer .btn{margin-top:24px}
+.link-cal{display:inline-block;margin-top:16px;font-size:.85rem;font-weight:700;color:var(--muted);border-bottom:1px dashed rgba(242,183,5,.4)}
+.link-cal:hover{color:var(--oro)}
 
-/* ============ Top bar ============ */
-.top-bar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 1.25rem 2rem;
-  background: rgba(255,255,255,0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-mute);
-}
-.top-bar .brand {
-  color: var(--text);
-  font-family: var(--serif);
-  font-size: 1rem;
-  letter-spacing: 0;
-  text-transform: none;
-  font-style: italic;
-}
-.top-bar .nav { display: flex; gap: 2rem; }
-.top-bar .nav a { transition: color 0.3s var(--ease-quiet); }
-.top-bar .nav a:hover { color: var(--text); }
-.top-bar .issue { color: var(--text-soft); }
+/* ===== TEMAS ===== */
+.temas{z-index:1;padding:90px 0}
+.cabecera{text-align:center;max-width:640px;margin:0 auto 56px}
+.cabecera h2{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:900}
+.cabecera h2 em{color:var(--oro);font-style:italic}
+.cabecera p{color:var(--muted);margin-top:14px}
+.grid-temas{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tema{background:var(--tarjeta);border:1px solid rgba(242,183,5,.14);border-radius:var(--radio);padding:32px 26px;transition:transform .28s,border-color .28s,box-shadow .28s}
+.tema:hover{transform:translateY(-7px);border-color:rgba(242,183,5,.5);box-shadow:0 20px 44px rgba(0,0,0,.45)}
+.tema .icono{width:56px;height:56px;border-radius:50%;margin-bottom:20px;display:flex;align-items:center;justify-content:center;background:rgba(242,183,5,.1);border:1.5px solid var(--oro);color:var(--oro)}
+.tema h3{font-size:1.12rem;margin-bottom:9px}
+.tema p{font-size:.9rem;color:var(--muted)}
 
-@media (max-width: 820px) {
-  .top-bar { padding: 0.9rem 1.25rem; font-size: 0.6rem; letter-spacing: 0.18em; }
-  .top-bar .nav { display: none; }
-  .top-bar .brand { font-size: 0.95rem; }
-}
+/* ===== PARA QUIÉN + WHATSAPP ===== */
+.duo{z-index:1;padding:90px 0;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.duo .cabecera{text-align:left;margin:0 0 8px}
+.lista-check{list-style:none;margin-top:26px}
+.lista-check li{display:flex;gap:15px;align-items:flex-start;padding:14px 0;border-bottom:1px dashed rgba(242,183,5,.16);font-size:.98rem;color:var(--muted)}
+.lista-check li:last-child{border:none}
+.lista-check .check{flex-shrink:0;width:27px;height:27px;border-radius:50%;margin-top:1px;background:linear-gradient(145deg,var(--oro),var(--miel));color:#1a1400;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.82rem}
+.lista-check strong{color:var(--texto)}
+.tarjeta-wa{background:linear-gradient(165deg,var(--tarjeta),#100d07);border:1px solid var(--borde);border-radius:22px;padding:44px 38px;box-shadow:var(--sombra);position:relative;overflow:hidden}
+.tarjeta-wa::before{content:'🐝';position:absolute;top:-14px;right:-6px;font-size:6rem;opacity:.07}
+.tarjeta-wa .script{font-size:1.9rem;color:var(--oro);font-weight:700}
+.tarjeta-wa h3{font-size:1.5rem;font-weight:900;margin-top:10px}
+.tarjeta-wa p{color:var(--muted);margin-top:14px;font-size:.95rem}
+.tarjeta-wa ul{list-style:none;margin-top:22px}
+.tarjeta-wa ul li{display:flex;gap:11px;padding:9px 0;font-size:.93rem;color:#d8d0bc}
+.tarjeta-wa ul li::before{content:'→';color:var(--oro);font-weight:900}
+.tarjeta-wa .btn{margin-top:28px;width:100%}
 
-/* ============ Hero ============ */
-.hero {
-  min-height: 100vh;
-  padding: 9rem 2rem 6rem;
-  display: flex; flex-direction: column;
-  justify-content: center;
-  max-width: 1400px; margin: 0 auto;
-  position: relative;
-}
+/* ===== FAQ ===== */
+.faq{z-index:1;padding:90px 0;max-width:820px;margin:0 auto}
+.faq-lista{display:flex;flex-direction:column;gap:14px}
+.faq-lista details{background:var(--tarjeta);border:1px solid rgba(242,183,5,.14);border-radius:15px;padding:22px 26px;transition:border-color .25s}
+.faq-lista details[open]{border-color:rgba(242,183,5,.5)}
+.faq-lista summary{cursor:pointer;font-weight:800;font-size:1rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-lista summary::-webkit-details-marker{display:none}
+.faq-lista summary::after{content:'+';font-size:1.5rem;color:var(--oro);transition:transform .25s}
+.faq-lista details[open] summary::after{transform:rotate(45deg)}
+.faq-lista details p{margin-top:14px;color:var(--muted);font-size:.94rem}
 
-.hero-label {
-  font-family: var(--sans);
-  font-size: 0.72rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--text-mute);
-  margin-bottom: 3.5rem;
-  display: flex; align-items: center; gap: 1rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s var(--ease-quiet), transform 1s var(--ease-quiet);
-}
-.hero-label::before {
-  content: ''; display: inline-block;
-  width: 36px; height: 1px; background: currentColor;
-}
-.hero.is-in .hero-label { opacity: 1; transform: none; }
+/* ===== CTA FINAL / FOOTER ===== */
+.cta-final{z-index:1;text-align:center;padding:100px 0;background:radial-gradient(circle at 82% 18%,rgba(242,183,5,.13),transparent 45%),radial-gradient(circle at 12% 88%,rgba(242,183,5,.09),transparent 45%),var(--negro-2);border-top:1px solid var(--borde);border-bottom:1px solid var(--borde)}
+.cta-final .script{font-size:clamp(2rem,4vw,2.7rem);color:var(--oro);font-weight:700}
+.cta-final h2{font-size:clamp(1.8rem,3.6vw,2.7rem);font-weight:900;margin-top:8px}
+.cta-final p{color:var(--muted);max-width:560px;margin:20px auto 0}
+.cta-final .btn{margin-top:36px}
+.cta-final .aviso{margin-top:18px;font-size:.82rem;color:#8a8370}
+footer{z-index:1;padding:38px 24px;text-align:center;color:#7d7663;font-size:.85rem}
+footer b{color:var(--oro)}
+.flotante{position:fixed;bottom:26px;right:26px;z-index:90;width:60px;height:60px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 32px rgba(0,0,0,.5);animation:pulso 2.4s infinite;transition:transform .2s}
+.flotante:hover{transform:scale(1.12)}
 
-.hero-title {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(3.2rem, 11vw, 9.5rem);
-  line-height: 0.93;
-  letter-spacing: -0.025em;
-  margin-bottom: 3rem;
-}
-.hero-title .line-mask { overflow: hidden; display: block; }
-.hero-title .line {
-  display: block;
-  transform: translateY(110%);
-  transition: transform 1.2s var(--ease-emphasis);
-}
-.hero.is-in .hero-title .line-mask:nth-child(1) .line { transform: translateY(0); transition-delay: 0.3s; }
-.hero.is-in .hero-title .line-mask:nth-child(2) .line { transform: translateY(0); transition-delay: 0.46s; }
-.hero.is-in .hero-title .line-mask:nth-child(3) .line { transform: translateY(0); transition-delay: 0.62s; }
-.hero-title .italic { font-style: italic; }
-.hero-title .small {
-  font-size: 0.42em;
-  vertical-align: super;
-  letter-spacing: 0;
-  font-style: italic;
-  color: var(--text-soft);
-}
-
-.hero-sub {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(1.2rem, 2.3vw, 1.8rem);
-  line-height: 1.4;
-  color: var(--text-soft);
-  max-width: 640px;
-  margin-bottom: 5rem;
-  min-height: 3.6em;
-}
-.hero-caret {
-  display: inline-block;
-  width: 2px;
-  height: 1em;
-  background: var(--text);
-  vertical-align: text-bottom;
-  margin-left: 2px;
-  transform: translateY(-2px);
-  transition: opacity 0.1s;
-}
-.hero-caret.is-hidden { opacity: 0; }
-
-.hero-meta {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--line);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s var(--ease-quiet) 0.4s, transform 1s var(--ease-quiet) 0.4s;
-}
-.hero.is-in .hero-meta { opacity: 1; transform: none; }
-.hero-meta-item { display: flex; flex-direction: column; gap: 0.6rem; }
-.meta-label {
-  font-family: var(--sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--text-mute);
-}
-.meta-val {
-  font-family: var(--serif);
-  font-size: 1.15rem;
-  color: var(--text);
-  letter-spacing: -0.005em;
-}
-.meta-val em { font-style: italic; color: var(--text-soft); font-size: 0.85em; }
-
-.scroll-cue {
-  position: absolute;
-  bottom: 1.5rem; left: 50%;
-  transform: translateX(-50%);
-  display: flex; flex-direction: column;
-  align-items: center; gap: 0.75rem;
-  opacity: 0;
-  transition: opacity 1s var(--ease-quiet) 1.6s;
-}
-.hero.is-in .scroll-cue { opacity: 1; }
-.scroll-cue-label {
-  font-family: var(--sans);
-  font-size: 0.6rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--text-mute);
-}
-.scroll-cue-line {
-  width: 1px; height: 36px;
-  background: var(--text);
-  animation: scroll-cue 2.4s var(--ease-quiet) infinite;
-  transform-origin: top center;
-}
-@keyframes scroll-cue {
-  0% { transform: scaleY(0); transform-origin: top; }
-  45% { transform: scaleY(1); transform-origin: top; }
-  46% { transform: scaleY(1); transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
-}
-
-@media (max-width: 820px) {
-  .hero { padding: 7rem 1.25rem 4rem; min-height: auto; }
-  .hero-meta { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-  .hero-label { margin-bottom: 2rem; }
-  .hero-sub { margin-bottom: 3rem; min-height: 4.4em; }
-  .scroll-cue { display: none; }
-}
-
-/* ============ Poster section ============ */
-.poster-section {
-  padding: 7rem 2rem;
-  max-width: 1400px; margin: 0 auto;
-}
-.poster-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 5rem;
-  align-items: start;
-}
-.poster-image-wrap {
-  position: relative;
-  background: #fafafa;
-  padding: 1.25rem;
-  border: 1px solid var(--line);
-}
-.poster-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  transform: scale(1.06);
-  opacity: 0;
-  filter: blur(10px);
-  transition: transform 1.8s var(--ease-emphasis), opacity 1.5s var(--ease-emphasis), filter 1.8s var(--ease-emphasis);
-}
-.poster-image.is-in { transform: scale(1); opacity: 1; filter: blur(0); }
-.poster-tag {
-  position: absolute;
-  top: -0.7rem; left: 1.25rem;
-  background: var(--bg);
-  padding: 0.25rem 0.85rem;
-  font-family: var(--sans);
-  font-size: 0.62rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--text);
-}
-.poster-credit {
-  margin-top: 1rem;
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  color: var(--text-mute);
-  letter-spacing: 0.05em;
-  display: flex;
-  justify-content: space-between;
-}
-
-.poster-text { padding-top: 1.5rem; }
-.section-label {
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--text-mute);
-  margin-bottom: 1.75rem;
-  display: flex; align-items: center; gap: 0.75rem;
-}
-.section-label::before {
-  content: ''; width: 24px; height: 1px; background: currentColor;
-}
-.section-label .num {
-  font-family: var(--serif);
-  font-style: italic;
-  color: var(--text-soft);
-  letter-spacing: 0;
-  text-transform: none;
-  font-size: 1rem;
-  margin-right: 0.4rem;
-}
-.poster-text h2 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(1.9rem, 3.8vw, 2.85rem);
-  line-height: 1.1;
-  margin-bottom: 2rem;
-  letter-spacing: -0.012em;
-}
-.poster-text h2 em { font-style: italic; color: var(--text-soft); }
-.poster-text p {
-  font-family: var(--sans);
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--text-soft);
-  margin-bottom: 1.5rem;
-}
-.poster-text .inline-link {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  margin-top: 1rem;
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text);
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--text);
-  transition: gap 0.4s var(--ease-quiet);
-}
-.inline-link:hover { gap: 0.85rem; }
-.inline-link .arr { display: inline-block; }
-
-.poster-text .caption {
-  font-family: var(--hand);
-  font-size: 1.45rem;
-  color: var(--text-mute);
-  margin-top: 2.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--line);
-  line-height: 1.3;
-}
-
-@media (max-width: 900px) {
-  .poster-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .poster-section { padding: 4.5rem 1.25rem; }
-}
-
-/* ============ Manifesto ============ */
-.manifesto {
-  padding: 9rem 2rem;
-  max-width: 880px;
-  margin: 0 auto;
-}
-.manifesto-label {
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--text-mute);
-  margin-bottom: 3.5rem;
-  text-align: center;
-  display: flex; align-items: center; justify-content: center; gap: 1rem;
-}
-.manifesto-label::before, .manifesto-label::after {
-  content: ''; width: 24px; height: 1px; background: currentColor;
-}
-.manifesto-text {
-  font-family: var(--serif);
-  font-size: clamp(1.4rem, 2.8vw, 2.1rem);
-  line-height: 1.45;
-  color: var(--text);
-  letter-spacing: -0.005em;
-}
-.manifesto-text .line { display: block; overflow: hidden; }
-.manifesto-text .line .inner {
-  display: block;
-  transform: translateY(110%);
-  transition: transform 1.1s var(--ease-quiet);
-  transition-delay: calc(var(--i, 0) * 160ms);
-}
-.manifesto.is-in .manifesto-text .line .inner { transform: translateY(0); }
-.manifesto-text em { font-style: italic; color: var(--text-soft); }
-
-@media (max-width: 820px) { .manifesto { padding: 5.5rem 1.25rem; } }
-
-/* ============ Specs ============ */
-.specs-section {
-  padding: 8rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.specs-head {
-  margin-bottom: 5rem;
-  max-width: 720px;
-}
-.specs-head h2 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(2rem, 4.5vw, 3.4rem);
-  line-height: 1.1;
-  letter-spacing: -0.012em;
-}
-.specs-head h2 em { font-style: italic; color: var(--text-soft); }
-
-.specs-table {
-  border-top: 1px solid var(--line);
-}
-.spec-row {
-  display: grid;
-  grid-template-columns: 220px 1.2fr 1fr;
-  gap: 2.5rem;
-  padding: 2rem 0;
-  border-bottom: 1px solid var(--line);
-  align-items: baseline;
-}
-.spec-row .key {
-  font-family: var(--sans);
-  font-size: 0.68rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--text-mute);
-}
-.spec-row .val {
-  font-family: var(--serif);
-  font-size: 1.4rem;
-  color: var(--text);
-  letter-spacing: -0.005em;
-}
-.spec-row .val em { font-style: italic; color: var(--text-soft); font-size: 0.82em; }
-.spec-row .note {
-  font-family: var(--sans);
-  font-size: 0.88rem;
-  color: var(--text-soft);
-  line-height: 1.65;
-}
-
-@media (max-width: 900px) {
-  .specs-section { padding: 5rem 1.25rem; }
-  .spec-row { grid-template-columns: 1fr; gap: 0.75rem; padding: 1.5rem 0; }
-  .spec-row .val { font-size: 1.2rem; }
-}
-
-/* ============ Pull quote ============ */
-.pull-quote {
-  padding: 10rem 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
-}
-.pull-quote .quote-mark {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 6rem;
-  line-height: 0.6;
-  color: var(--text-faint);
-  margin-bottom: 1.5rem;
-}
-.pull-quote blockquote {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(1.7rem, 3.4vw, 2.65rem);
-  line-height: 1.35;
-  color: var(--text);
-  letter-spacing: -0.008em;
-  margin-bottom: 2.5rem;
-  max-width: 880px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.pull-quote .cite {
-  font-family: var(--sans);
-  font-size: 0.72rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--text-mute);
-}
-
-@media (max-width: 820px) { .pull-quote { padding: 6rem 1.25rem; } }
-
-/* ============ CTA ============ */
-.cta-section {
-  padding: 10rem 2rem 9rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-}
-.cta-label {
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--text-mute);
-  margin-bottom: 2.5rem;
-  display: inline-flex; align-items: center; gap: 0.85rem;
-}
-.cta-label::before, .cta-label::after {
-  content: ''; width: 28px; height: 1px; background: currentColor;
-}
-.cta-section h2 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(2.4rem, 5.8vw, 4.75rem);
-  line-height: 1.05;
-  letter-spacing: -0.018em;
-  margin-bottom: 2.5rem;
-}
-.cta-section h2 em { font-style: italic; color: var(--text-soft); }
-.cta-section .lede {
-  font-family: var(--sans);
-  font-size: 1.04rem;
-  line-height: 1.75;
-  color: var(--text-soft);
-  max-width: 600px;
-  margin: 0 auto 4rem;
-}
-
-.cta-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.3rem 2.6rem;
-  background: var(--text);
-  color: var(--bg);
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  border: 1px solid var(--text);
-  transition: background 0.5s var(--ease-quiet), color 0.5s var(--ease-quiet), gap 0.5s var(--ease-quiet);
-  position: relative;
-}
-.cta-button .arrow {
-  display: inline-block;
-  transition: transform 0.5s var(--ease-quiet);
-}
-.cta-button:hover {
-  background: var(--bg);
-  color: var(--text);
-  gap: 1.4rem;
-}
-.cta-button:hover .arrow { transform: translateX(4px); }
-
-.whats-icon { width: 16px; height: 16px; flex-shrink: 0; }
-
-.cta-fine {
-  margin-top: 2.75rem;
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  color: var(--text-mute);
-  line-height: 1.65;
-}
-.cta-fine a {
-  color: var(--text-soft);
-  border-bottom: 1px solid var(--line);
-  transition: border-color 0.3s, color 0.3s;
-}
-.cta-fine a:hover { border-color: var(--text); color: var(--text); }
-
-.cta-steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 6rem;
-  padding-top: 4rem;
-  border-top: 1px solid var(--line);
-  text-align: left;
-}
-.cta-step .step-num {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 2.25rem;
-  color: var(--text-faint);
-  line-height: 1;
-  margin-bottom: 1rem;
-}
-.cta-step h4 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 1.25rem;
-  margin-bottom: 0.75rem;
-  letter-spacing: -0.005em;
-}
-.cta-step p {
-  font-family: var(--sans);
-  font-size: 0.88rem;
-  line-height: 1.65;
-  color: var(--text-soft);
-}
-
-@media (max-width: 820px) {
-  .cta-section { padding: 6rem 1.25rem 5rem; }
-  .cta-button { padding: 1rem 1.75rem; font-size: 0.7rem; letter-spacing: 0.18em; gap: 0.75rem; }
-  .cta-steps { grid-template-columns: 1fr; gap: 2.5rem; margin-top: 4rem; padding-top: 3rem; }
-}
-
-/* ============ Footer ============ */
-.site-footer {
-  padding: 5rem 2rem 3rem;
-  max-width: 1400px;
-  margin: 0 auto;
-  border-top: 1px solid var(--line);
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 4rem;
-}
-.footer-brand {
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  line-height: 1.3;
-}
-.footer-brand em { font-style: italic; color: var(--text-soft); }
-.footer-brand .small {
-  display: block;
-  margin-top: 0.75rem;
-  font-size: 0.7rem;
-  color: var(--text-mute);
-  font-family: var(--sans);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-.footer-col h4 {
-  font-family: var(--sans);
-  font-size: 0.62rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--text-mute);
-  margin-bottom: 1.25rem;
-  font-weight: 400;
-}
-.footer-col ul { list-style: none; }
-.footer-col li {
-  font-family: var(--sans);
-  font-size: 0.9rem;
-  margin-bottom: 0.75rem;
-  color: var(--text-soft);
-}
-.footer-col li a { transition: color 0.3s; }
-.footer-col li a:hover { color: var(--text); }
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 2rem;
-  border-top: 1px solid var(--line);
-  font-family: var(--sans);
-  font-size: 0.72rem;
-  color: var(--text-mute);
-  letter-spacing: 0.06em;
-}
-
-@media (max-width: 820px) {
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-}
-
-/* ============ Reveal utility ============ */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1.2s var(--ease-quiet), transform 1.2s var(--ease-quiet);
-}
-.reveal.is-in { opacity: 1; transform: none; }
-
-/* ============ Reduced motion ============ */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  .noise-overlay { animation: none; }
-  .poster-image { transform: none; opacity: 1; filter: none; }
-  .hero-title .line { transform: none; }
-  .manifesto-text .line .inner { transform: none; }
-  .reveal { opacity: 1; transform: none; }
-  .scroll-cue { display: none; }
+/* ===== ANIMACIÓN SCROLL + RESPONSIVE ===== */
+.revelar{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.revelar.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.revelar{opacity:1;transform:none;transition:none}}
+@media (max-width:960px){
+  .hero{grid-template-columns:1fr;gap:52px;padding-top:56px}
+  .poster-zona{max-width:520px;margin:0 auto;width:100%}
+  .grid-temas{grid-template-columns:repeat(2,1fr)}
+  .duo{grid-template-columns:1fr;gap:50px}
+  .nav-links{display:none}
+}
+@media (max-width:600px){
+  .grid-temas{grid-template-columns:1fr}
+  .unidad{min-width:74px;padding:18px 8px 14px}
+  .unidad .etq{letter-spacing:1.5px}
+  .flotante{bottom:20px;right:20px;width:54px;height:54px}
 }
 </style>
 </head>
 <body>
 
-<div class="noise-overlay" aria-hidden="true"></div>
+<div class="fondo-panal"></div>
 
-<header class="top-bar">
-  <div class="brand">Formular Tu Receta</div>
-  <nav class="nav">
-    <a href="#poster">Cartel</a>
-    <a href="#detalles">Detalles</a>
-    <a href="#registro">Registro</a>
-  </nav>
-  <div class="issue">Vol. 01 · Ago 2026</div>
+<div class="mini-aviso">🗓 <strong>Jueves 17 de septiembre de 2026</strong> · 7:30 p.m. (CDMX) · <strong>Cupos limitados</strong> — evento 100% gratuito</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo"><span class="ico">🐝</span>HIDROMIEL&nbsp;<span>MÉXICO</span></a>
+    <nav class="nav-links">
+      <a href="#temas">Temas</a>
+      <a href="#temporizador">Cuenta regresiva</a>
+      <a href="#faq">Preguntas</a>
+    </nav>
+    <a class="btn btn-wa btn-sm pulso" href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener">Únete al grupo</a>
+  </div>
 </header>
 
-<!-- ============ HERO ============ -->
-<section class="hero" id="hero">
-  <div class="hero-label">Webinario gratuito · Para principiantes y entusiastas · CDMX</div>
-  <h1 class="hero-title">
-    <span class="line-mask"><span class="line">Cómo formular</span></span>
-    <span class="line-mask"><span class="line">tu propia <span class="italic">receta</span></span></span>
-    <span class="line-mask"><span class="line">de cerveza<span class="small"> desde cero</span></span></span>
-  </h1>
-  <p class="hero-sub">
-    <span id="typewriter"></span><span class="hero-caret" id="caret"></span>
-  </p>
-  <div class="hero-meta">
-    <div class="hero-meta-item">
-      <span class="meta-label">Fecha</span>
-      <span class="meta-val">Lunes 31 · 08 · 26</span>
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="cejilla">Webinar gratuito · En vivo por Zoom</div>
+    <h1>
+      <span class="acento">De la miel a la botella:</span>
+      los secretos para elaborar una <span class="subrayado">hidromiel</span> de calidad
+    </h1>
+    <p class="lead">
+      Aprende <strong>qué miel elegir</strong>, cómo controlar la fermentación y evitar los errores
+      más comunes para conseguir una hidromiel con <strong>mejor aroma, sabor y estabilidad</strong>.
+    </p>
+    <div class="hero-datos">
+      <div class="chip"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>Jue 17 · Septiembre 2026</div>
+      <div class="chip"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>7:30 p.m. · CDMX</div>
+      <div class="chip"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3"/></svg>Zoom en vivo</div>
     </div>
-    <div class="hero-meta-item">
-      <span class="meta-label">Horario</span>
-      <span class="meta-val">7:30 PM <em>CDMX</em></span>
-    </div>
-    <div class="hero-meta-item">
-      <span class="meta-label">Plataforma</span>
-      <span class="meta-val">Zoom</span>
-    </div>
-    <div class="hero-meta-item">
-      <span class="meta-label">Costo</span>
-      <span class="meta-val">Sin costo</span>
+    <div class="hero-cta">
+      <a class="btn btn-wa pulso" href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener">Reservar mi lugar</a>
+      <span class="hero-nota">✓ <b>Gratis</b> · Cupo limitado</span>
     </div>
   </div>
-  <div class="scroll-cue">
-    <span class="scroll-cue-label">Scroll para explorar</span>
-    <span class="scroll-cue-line"></span>
+
+  <!-- IMAGEN DEL PÓSTER -->
+  <div class="poster-zona">
+    <div class="poster-marco">
+      <img id="poster" alt="Póster del webinar: De la miel a la botella, los secretos para elaborar una hidromiel de calidad">
+    </div>
+    <div class="etiqueta-flotante">¡La hidromiel también es México!</div>
   </div>
 </section>
 
-<!-- ============ POSTER ============ -->
-<section class="poster-section" id="poster">
-  <div class="poster-grid">
-    <div class="poster-image-wrap">
-      <div class="poster-tag">Imagen 01 · Cartel</div>
-      <img class="poster-image" id="poster-img"
-           src="https://z-cdn-media.chatglm.cn/files/718fd5b7-c0bd-4187-a14d-7031abb781b7.png?auth_key=1887669044-d09cf9d0866f4ac18dea7678db431f75-0-265bec04c133a1fbf6d4347b0c771106"
-           alt="Cartel del webinario gratuito — Cómo formular tu propia receta de cerveza desde cero, 31 de agosto de 2026">
-      <div class="poster-credit">
-        <span>Cartel · ed. 2026</span>
-        <span>Formular Tu Receta · Vol. 01</span>
-      </div>
+<!-- CONFIANZA -->
+<div class="confianza">
+  <div class="confianza-inner revelar">
+    <div><b>+2,500</b><span>Fermentadores</span></div>
+    <div><b>4.9/5</b><span>Valoración</span></div>
+    <div><b>6</b><span>Temas clave</span></div>
+    <div><b>100%</b><span>Gratuito</span></div>
+  </div>
+</div>
+
+<!-- TEMPORIZADOR -->
+<section class="timer" id="temporizador">
+  <div class="contenedor revelar">
+    <div class="cejilla" style="justify-content:center">Cuenta regresiva</div>
+    <h2 id="timer-titulo">El webinar comienza en…</h2>
+    <div class="fecha-linea">📅 Jueves 17 de septiembre de 2026 · 🕖 7:30 p.m. · Hora CDMX</div>
+    <div class="reloj">
+      <div class="unidad"><div class="num" id="dias">--</div><div class="etq">Días</div></div>
+      <div class="unidad"><div class="num" id="horas">--</div><div class="etq">Horas</div></div>
+      <div class="unidad"><div class="num" id="minutos">--</div><div class="etq">Min</div></div>
+      <div class="unidad"><div class="num" id="segundos">--</div><div class="etq">Seg</div></div>
     </div>
-    <div class="poster-text reveal">
-      <div class="section-label"><span class="num">§ 01</span> Sobre la sesión</div>
-      <h2>Una hora para construir <em>tu receta</em> desde cero, paso a paso.</h2>
-      <p>Seleccionar el estilo, elegir los ingredientes, calcular los parámetros: cada decisión define el carácter de tu cerveza. En esta sesión en vivo lo recorremos todo, en orden, con ejemplos prácticos.</p>
-      <p>No es teoría abstracta. Es un cuaderno de trabajo pensado para principiantes y cerveceros caseros: abres tu receta, la diseñas, la equilibras. Al final sabrás exactamente cómo formular tu próxima cerveza con criterio.</p>
-      <a href="#registro" class="inline-link">Quiero mi lugar <span class="arr">→</span></a>
-      <div class="caption">— Una sesión. Una hora. Una receta equilibrada.</div>
-    </div>
+    <p class="nota">Mientras esperas, <strong>únete al grupo de WhatsApp</strong>: recibirás el enlace de Zoom, recordatorios y material de apoyo.</p>
+    <a class="btn btn-wa pulso" href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener">📲 Entrar al grupo de WhatsApp</a>
+    <br>
+    <a class="link-cal" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Webinar%3A+De+la+miel+a+la+botella&dates=20260917T193000%2F20260917T210000&ctz=America%2FMexico_City" target="_blank" rel="noopener">＋ Agregar a Google Calendar</a>
   </div>
 </section>
 
-<!-- ============ MANIFESTO ============ -->
-<section class="manifesto" id="manifiesto">
-  <div class="manifesto-label reveal">Manifiesto</div>
-  <p class="manifesto-text">
-    <span class="line"><span class="inner">Toda cerveza empieza con una idea:</span></span>
-    <span class="line"><span class="inner">un estilo, un aroma, un cuerpo que buscas.</span></span>
-    <span class="line"><span class="inner">Pero entre la idea y el vaso hay <em>números</em>.</span></span>
-    <span class="line"><span class="inner">Densidad, color, amargor, atenuación.</span></span>
-    <span class="line"><span class="inner">Ideal para principiantes y para quien</span></span>
-    <span class="line"><span class="inner">quiere dejar de copiar y empezar a <em>formular</em>.</span></span>
-  </p>
-</section>
-
-<!-- ============ SPECS ============ -->
-<section class="specs-section" id="detalles">
-  <div class="specs-head">
-    <div class="section-label reveal"><span class="num">§ 02</span> Ficha técnica</div>
-    <h2 class="reveal">Detalles de la <em>sesión</em>.</h2>
-  </div>
-  <div class="specs-table">
-    <div class="spec-row reveal">
-      <div class="key">Fecha</div>
-      <div class="val">Lunes 31 de agosto de 2026</div>
-      <div class="note">Una sola emisión en vivo. No se graba ni se retransmite.</div>
+<!-- TEMAS -->
+<section class="temas" id="temas">
+  <div class="contenedor">
+    <div class="cabecera revelar">
+      <div class="cejilla" style="justify-content:center">Programa</div>
+      <h2>Temas del <em>webinar</em></h2>
+      <p>Seis bloques prácticos para pasar de la miel cruda a una botella de la que te enorgullezcas.</p>
     </div>
-    <div class="spec-row reveal">
-      <div class="key">Horario</div>
-      <div class="val">7:30 — 8:45 PM <em>(CDMX, GMT-6)</em></div>
-      <div class="note">Setenta y cinco minutos: sesenta de contenido, quince de preguntas.</div>
-    </div>
-    <div class="spec-row reveal">
-      <div class="key">Plataforma</div>
-      <div class="val">Zoom</div>
-      <div class="note">La liga de acceso se envía por el grupo de WhatsApp una hora antes.</div>
-    </div>
-    <div class="spec-row reveal">
-      <div class="key">Idioma</div>
-      <div class="val">Español</div>
-      <div class="note">Material de apoyo en PDF descargable al cierre de la sesión.</div>
-    </div>
-    <div class="spec-row reveal">
-      <div class="key">Nivel</div>
-      <div class="val">Principiantes en adelante</div>
-      <div class="note">No necesitas experiencia previa formulando. Pensado para principiantes y cerveceros caseros que buscan estructurar su método.</div>
-    </div>
-    <div class="spec-row reveal">
-      <div class="key">Cupo</div>
-      <div class="val">Limitado <em>por Zoom</em></div>
-      <div class="note">Asegura tu lugar entrando al grupo cuanto antes. No hay lista de espera.</div>
-    </div>
-    <div class="spec-row reveal">
-      <div class="key">Costo</div>
-      <div class="val">Sin costo</div>
-      <div class="note">Solo pide tu lugar en el grupo de WhatsApp. Eso es todo.</div>
+    <div class="grid-temas">
+      <div class="tema revelar"><div class="icono"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9z"/><path d="M12 7l4 2.25v4.5L12 16l-4-2.25v-4.5z"/></svg></div><h3>¿Qué miel elegir?</h3><p>Y cómo influye directamente en el sabor y la fermentación.</p></div>
+      <div class="tema revelar"><div class="icono"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 2h4M12 2v6M8.5 8h7l3.5 8.5a3 3 0 0 1-2.8 4.1H7.8A3 3 0 0 1 5 16.5z"/><path d="M7.5 14h9"/></svg></div><h3>Cómo controlar la fermentación</h3><p>Levadura, temperatura, nutrientes y densidad paso a paso.</p></div>
+      <div class="tema revelar"><div class="icono"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3L2.5 20h19z"/><path d="M12 10v4.5"/><circle cx="12" cy="17.2" r=".5" fill="currentColor"/></svg></div><h3>Los errores más comunes</h3><p>Identifícalos a tiempo y aprende a evitarlos.</p></div>
+      <div class="tema revelar"><div class="icono"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3h8c0 5 2 7 2 10a6 6 0 0 1-12 0c0-3 2-5 2-10z"/><path d="M6.5 13.5h11"/></svg></div><h3>Clarificación y estabilidad</h3><p>Para una hidromiel limpia, brillante y con carácter.</p></div>
+      <div class="tema revelar"><div class="icono"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c2.5 3.5 5 6 5 9.5a5 5 0 0 1-10 0C7 9 9.5 6.5 12 3z"/></svg></div><h3>El arte del perfil sensorial</h3><p>¿Por qué algunas hidromieles son increíbles y otras no?</p></div>
+      <div class="tema revelar"><div class="icono"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V14M10 20V10M16 20V13"/><path d="M3 8l6-4 4 3 7-5"/><path d="M17 2h3v3"/></svg></div><h3>¿Es un buen negocio?</h3><p>Oportunidades del mercado mexicano.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ============ PULL QUOTE ============ -->
-<section class="pull-quote">
-  <div class="quote-mark reveal">"</div>
-  <blockquote class="reveal">
-    Una receta equilibrada no se copia. Se diseña, se pesa y se calcula. El resto es imitación — y la imitación no enseña.
-  </blockquote>
-  <div class="cite reveal">— Cuaderno de carrera · nota 042</div>
+<!-- PARA QUIÉN ES -->
+<section class="duo contenedor">
+  <div class="revelar">
+    <div class="cabecera">
+      <div class="cejilla">¿Es para mí?</div>
+      <h2>Quieres una <em style="color:var(--oro)">hidromiel profesional</em></h2>
+    </div>
+    <ul class="lista-check">
+      <li><span class="check">✓</span><span><strong>Eres principiante</strong> y quieres empezar bien, sin perder tiempo ni miel.</span></li>
+      <li><span class="check">✓</span><span><strong>Ya hiciste lotes</strong> pero con resultados irregulares: sabores raros, turbidez, paradas.</span></li>
+      <li><span class="check">✓</span><span><strong>Buscas calidad consistente</strong> para compartir, concursar o vender.</span></li>
+      <li><span class="check">✓</span><span><strong>Te apasiona lo artesanal</strong> y quieres dominar una bebida milenaria mexicana.</span></li>
+    </ul>
+  </div>
+  <aside class="tarjeta-wa revelar">
+    <div class="script">¡Descubre el poder de la hidromiel! 🐝</div>
+    <h3>Este webinar es solo el inicio…</h3>
+    <p>Al unirte al grupo de WhatsApp recibirás:</p>
+    <ul>
+      <li>El <b>enlace de Zoom</b> antes del evento</li>
+      <li><b>Recordatorios</b> para no perdértelo</li>
+      <li>Material de apoyo y <b>guía práctica</b></li>
+      <li>Acceso preferente al <b>Paquete de Cursos de Hidromiel</b></li>
+    </ul>
+    <a class="btn btn-wa" href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener">Quiero mi lugar en el grupo →</a>
+  </aside>
 </section>
 
-<!-- ============ CTA ============ -->
-<section class="cta-section" id="registro">
-  <div class="cta-label reveal">Paso final · Registro</div>
-  <h2 class="reveal">Únete al grupo.<br><em>Recibe la liga.</em></h2>
-  <p class="lede reveal">Para recibir el enlace de Zoom y el material de la sesión, únete al grupo de WhatsApp. Ahí enviaremos la liga de acceso una hora antes de empezar, junto con el cuaderno de formulación en PDF.</p>
-  <a href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx"
-     target="_blank"
-     rel="noopener noreferrer"
-     class="cta-button reveal">
-    <svg class="whats-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2zm5.8 14.13c-.25.69-1.45 1.32-2 1.4-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.62-2.97-1.28-4.9-4.27-5.05-4.47-.15-.2-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.79-.37.2 0 .39 0 .56.01.18.01.42-.07.66.5.25.59.84 2.04.91 2.19.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.18-.31.39-.45.53-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.13.64-.08.17-.2.74-.86.94-1.16.2-.3.39-.25.66-.15.27.1 1.71.81 2 .96.3.15.5.22.57.35.07.13.07.72-.18 1.41z"/>
-    </svg>
-    Unirme al grupo de WhatsApp
-    <span class="arrow">→</span>
-  </a>
-  <div class="cta-fine reveal">
-    ¿No usas WhatsApp? Escríbenos a <a href="mailto:hola@formulareceta.mx">hola@formulareceta.mx</a> y te enviamos la liga directamente.
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="cabecera revelar">
+    <div class="cejilla" style="justify-content:center">Dudas frecuentes</div>
+    <h2>Preguntas <em>frecuentes</em></h2>
   </div>
-
-  <div class="cta-steps">
-    <div class="cta-step reveal">
-      <div class="step-num">i.</div>
-      <h4>Entras al grupo</h4>
-      <p>Un clic en el botón de arriba te lleva al grupo oficial del webinario. Es gratuito y permanece abierto.</p>
-    </div>
-    <div class="cta-step reveal">
-      <div class="step-num">ii.</div>
-      <h4>Recibes la liga</h4>
-      <p>El enlace de Zoom se publica en el grupo una hora antes de la sesión, junto con el cuaderno de formulación en PDF.</p>
-    </div>
-    <div class="cta-step reveal">
-      <div class="step-num">iii.</div>
-      <h4>Te conectas en vivo</h4>
-      <p>Lunes 31 de agosto, 7:30 PM (CDMX). Sesenta minutos de contenido, quince de preguntas. Sin grabación.</p>
-    </div>
+  <div class="faq-lista revelar">
+    <details open><summary>¿El webinar tiene algún costo?</summary><p>No, es 100% gratuito. Solo únete al grupo de WhatsApp para recibir el enlace de Zoom.</p></details>
+    <details><summary>¿Necesito experiencia previa?</summary><p>Ninguna. Es para principiantes y para quienes ya elaboran hidromiel y quieren mejorar.</p></details>
+    <details><summary>¿Qué horario y zona horaria?</summary><p>Jueves 17 de septiembre de 2026, 7:30 p.m. hora CDMX. Usa el botón "Agregar a Google Calendar".</p></details>
+    <details><summary>¿Habrá grabación?</summary><p>Es en vivo por Zoom. Los miembros del grupo recibirán información sobre material y accesos posteriores.</p></details>
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
-<footer class="site-footer">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      Formular Tu <em>Receta</em>
-      <span class="small">Webinario · Vol. 01 · Ago 2026</span>
-    </div>
-    <div class="footer-col">
-      <h4>Sesión</h4>
-      <ul>
-        <li><a href="#poster">Cartel</a></li>
-        <li><a href="#detalles">Detalles</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Acceso</h4>
-      <ul>
-        <li><a href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener">Grupo WhatsApp</a></li>
-        <li><a href="mailto:hola@formulareceta.mx">Correo</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Edición</h4>
-      <ul>
-        <li>Volumen 01</li>
-        <li>Agosto 2026</li>
-        <li>CDMX · GMT-6</li>
-      </ul>
-    </div>
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="contenedor revelar">
+    <div class="script">¡No te quedes fuera!</div>
+    <h2>Asegura tu lugar en el webinar en vivo</h2>
+    <p>Únete ahora al grupo de WhatsApp y da el primer paso para elaborar una hidromiel con mejor aroma, sabor y estabilidad.</p>
+    <a class="btn btn-wa btn-lg pulso" href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener">🍯 Unirme al grupo de WhatsApp</a>
+    <div class="aviso">Es gratis, tardas 10 segundos y puedes salir cuando quieras.</div>
   </div>
-  <div class="footer-bottom">
-    <div>© 2026 Formular Tu Receta · Cuaderno de sesión</div>
-    <div>Diseñado para crear con criterio</div>
-  </div>
-</footer>
+</section>
+
+<footer>🐝 <b>Hidromiel México</b> · Webinar gratuito "De la miel a la botella" · Jue 17 sept 2026 · 7:30 p.m. CDMX · Zoom</footer>
+
+<a class="flotante" href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#052b12"><path d="M12.05 21.5a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.56.93.95-3.47-.22-.36A9.42 9.42 0 0 1 2.64 12c0-5.2 4.24-9.44 9.44-9.44 2.52 0 4.89.98 6.67 2.76A9.38 9.38 0 0 1 21.5 12c0 5.2-4.24 9.5-9.45 9.5zm8.03-17.47A11.36 11.36 0 0 0 12.05.62C5.82.62.76 5.68.76 11.9c0 2 .52 3.95 1.51 5.68L.67 24l6.57-1.72a11.28 11.28 0 0 0 4.8 1.08h.01c6.22 0 11.28-5.06 11.29-11.28a11.2 11.2 0 0 0-3.26-8.05z"/></svg>
+</a>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+/* ── IMAGEN DEL PÓSTER (ya configurada ✓) ── */
+const URL_IMAGEN = "https://i.postimg.cc/pTD7fP5F/webinar-hidro.png";
 
-  /* === Lenis smooth scroll === */
-  if (window.Lenis) {
-    const lenis = new Lenis({
-      duration: 1.15,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-    });
-    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
+const poster = document.getElementById("poster");
+poster.src = URL_IMAGEN;
+poster.style.display = "block";
+poster.onerror = () => {
+  poster.parentElement.innerHTML =
+    '<div style="aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:40px;text-align:center;color:var(--oro);font-weight:800">🍯<br>Póster del webinar<br>De la miel a la botella</div>';
+};
 
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        const target = a.getAttribute('href');
-        if (target.length > 1) {
-          const el = document.querySelector(target);
-          if (el) { e.preventDefault(); lenis.scrollTo(el, { offset: -80 }); }
-        }
-      });
-    });
+/* ── TEMPORIZADOR: jue 17 sept 2026, 7:30 p.m. CDMX ── */
+const objetivo = new Date("2026-09-17T19:30:00-06:00").getTime();
+const $ = id => document.getElementById(id);
+
+function tick(){
+  const diff = objetivo - Date.now();
+  if(diff <= 0){
+    $("timer-titulo").textContent = "🚨 ¡El webinar ya comenzó!";
+    document.querySelector(".fecha-linea").textContent = "Entra al grupo de WhatsApp para recibir el enlace de Zoom →";
+    ["dias","horas","minutos","segundos"].forEach(i => $(i).textContent = "0");
+    return;
   }
+  $("dias").textContent     = Math.floor(diff / 86400000);
+  $("horas").textContent    = String(Math.floor(diff % 86400000 / 3600000)).padStart(2,"0");
+  $("minutos").textContent  = String(Math.floor(diff % 3600000 / 60000)).padStart(2,"0");
+  $("segundos").textContent = String(Math.floor(diff % 60000 / 1000)).padStart(2,"0");
+}
+tick();
+setInterval(tick, 1000);
 
-  /* === Hero entrance === */
-  setTimeout(() => {
-    document.querySelector('.hero').classList.add('is-in');
-  }, 80);
-
-  /* === Typewriter on hero subtitle === */
-  const typewriter = document.getElementById('typewriter');
-  const caret = document.getElementById('caret');
-  const SRC = 'Aprende a seleccionar estilo, ingredientes y parámetros con criterio.';
-  if (typewriter && caret) {
-    let i = 0;
-    setTimeout(() => {
-      const tick = setInterval(() => {
-        i++;
-        typewriter.textContent = SRC.slice(0, i);
-        if (i >= SRC.length) {
-          clearInterval(tick);
-          let n = 0, on = true;
-          const blink = setInterval(() => {
-            on = !on;
-            caret.classList.toggle('is-hidden', !on);
-            if (++n >= 8) {
-              clearInterval(blink);
-              caret.classList.add('is-hidden');
-            }
-          }, 400);
-        }
-      }, 42);
-    }, 1500);
-  }
-
-  /* === Set manifesto line indices === */
-  document.querySelectorAll('.manifesto-text .inner').forEach((el, i) => {
-    el.style.setProperty('--i', i);
+/* ── Animaciones al hacer scroll ── */
+const obs = new IntersectionObserver(entradas => {
+  entradas.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add("visible"); obs.unobserve(e.target); }
   });
-
-  /* === IntersectionObserver for reveals === */
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('is-in');
-        const parentSection = e.target.closest('section');
-        if (parentSection) parentSection.classList.add('is-in');
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
-
-  document.querySelectorAll('.reveal, .manifesto, .poster-image').forEach(el => {
-    io.observe(el);
-  });
-
-  /* === Poster image reveal === */
-  const posterImg = document.getElementById('poster-img');
-  if (posterImg) {
-    const posterIO = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('is-in');
-          posterIO.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.18 });
-    posterIO.observe(posterImg);
-  }
-
-  /* === Touch fallback === */
-  if (window.matchMedia('(pointer: coarse)').matches) {
-    document.body.classList.add('is-touch');
-  }
-});
+}, {threshold:.12});
+document.querySelectorAll(".revelar").forEach(el => obs.observe(el));
 </script>
 
 </body>
