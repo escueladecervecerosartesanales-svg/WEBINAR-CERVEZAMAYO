@@ -1,16 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Webinar Gratuito · Cómo diseñar una receta profesional de hidromiel | Hidromiel de Calidad</title>
-<meta name="description" content="Webinar gratuito: aprende a formular, equilibrar y personalizar tu hidromiel con base en la ciencia y la experiencia. Miércoles 30 de septiembre de 2026, 7:30 p.m. (CDMX).">
-<meta property="og:title" content="Webinar Gratuito: Cómo diseñar una receta profesional de hidromiel">
-<meta property="og:description" content="Aprende a formular, equilibrar y personalizar tu hidromiel con base en la ciencia y la experiencia. Cupo limitado.">
-<meta property="og:image" content="https://i.postimg.cc/0jt9TGPr/Chat-GPT-Image-27-sept-2026-14-32-58.png">
+<title>Webinar Gratuito · Cómo formular tu receta de cerveza desde cero | Cerveza de Calidad</title>
+<meta name="description" content="Webinar gratuito: aprende a formular, equilibrar y personalizar tu cerveza con base en la ciencia y la experiencia. Jueves 15 de octubre de 2026, 7:30 p.m. (CDMX).">
+<meta property="og:title" content="Webinar Gratuito: Cómo formular tu receta de cerveza desde cero">
+<meta property="og:description" content="Aprende a formular, equilibrar y personalizar tu cerveza con base en la ciencia y la experiencia. Cupo limitado.">
+<meta property="og:image" content="https://i.postimg.cc/MGSZt5XW/Webinar-gratuito-formula-tu-cerveza.png">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐝</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍺</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=Manrope:wght@400;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
@@ -18,7 +17,7 @@
 <style>
 :root{
   --negro:#0c0a07; --negro-2:#141109; --tarjeta:#1a1610;
-  --oro:#f2b705; --oro-claro:#ffd45e; --miel:#e89b2d;
+  --oro:#f2b705; --oro-claro:#ffd45e; --ambar:#e89b2d;
   --crema:#f6efe0; --texto:#f3eee2; --muted:#b8b09c;
   --wa:#25d366; --borde:rgba(242,183,5,.22);
   --sombra:0 24px 60px rgba(0,0,0,.55); --radio:18px;
@@ -34,9 +33,9 @@ a{text-decoration:none;color:inherit}
 .contenedor{max-width:1140px;margin:0 auto;padding:0 24px}
 section{position:relative}
 
-.fondo-panal{
-  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.045;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cpath d='M28 0L56 16v32L28 64 0 48V16zM28 64l28 16v32' fill='none' stroke='%23f2b705' stroke-width='1.4'/%3E%3C/svg%3E");
+.fondo-burbujas{
+  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130' viewBox='0 0 130 130'%3E%3Cg fill='none' stroke='%23f2b705' stroke-width='1.3'%3E%3Ccircle cx='30' cy='30' r='10'/%3E%3Ccircle cx='95' cy='60' r='14'/%3E%3Ccircle cx='45' cy='100' r='7'/%3E%3Ccircle cx='105' cy='115' r='9'/%3E%3C/g%3E%3C/svg%3E");
 }
 .cejilla{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--oro);margin-bottom:16px}
 .cejilla::before{content:'';width:34px;height:1px;background:var(--oro)}
@@ -56,7 +55,7 @@ section{position:relative}
 .nav{position:sticky;top:0;z-index:80;background:rgba(12,10,7,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--borde)}
 .nav-inner{max-width:1140px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1rem;letter-spacing:1.5px}
-.logo .ico{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,var(--oro),var(--miel));font-size:1.15rem}
+.logo .ico{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,var(--oro),var(--ambar));font-size:1.15rem}
 .logo span{color:var(--oro)}
 .nav-links{display:flex;gap:30px;font-size:.88rem;font-weight:600;color:var(--muted)}
 .nav-links a:hover{color:var(--oro)}
@@ -133,10 +132,10 @@ section{position:relative}
 .lista-check{list-style:none;margin-top:26px}
 .lista-check li{display:flex;gap:15px;align-items:flex-start;padding:14px 0;border-bottom:1px dashed rgba(242,183,5,.16);font-size:.98rem;color:var(--muted)}
 .lista-check li:last-child{border:none}
-.lista-check .check{flex-shrink:0;width:27px;height:27px;border-radius:50%;margin-top:1px;background:linear-gradient(145deg,var(--oro),var(--miel));color:#1a1400;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.82rem}
+.lista-check .check{flex-shrink:0;width:27px;height:27px;border-radius:50%;margin-top:1px;background:linear-gradient(145deg,var(--oro),var(--ambar));color:#1a1400;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.82rem}
 .lista-check strong{color:var(--texto)}
 .tarjeta-wa{background:linear-gradient(165deg,var(--tarjeta),#100d07);border:1px solid var(--borde);border-radius:22px;padding:44px 38px;box-shadow:var(--sombra);position:relative;overflow:hidden}
-.tarjeta-wa::before{content:'🐝';position:absolute;top:-14px;right:-6px;font-size:6rem;opacity:.07}
+.tarjeta-wa::before{content:'🍺';position:absolute;top:-14px;right:-6px;font-size:6rem;opacity:.07}
 .tarjeta-wa .script{font-size:1.9rem;color:var(--oro);font-weight:700}
 .tarjeta-wa h3{font-size:1.5rem;font-weight:900;margin-top:10px}
 .tarjeta-wa p{color:var(--muted);margin-top:14px;font-size:.95rem}
@@ -189,13 +188,13 @@ footer b{color:var(--oro)}
 </head>
 <body>
 
-<div class="fondo-panal"></div>
+<div class="fondo-burbujas"></div>
 
-<div class="mini-aviso">🗓 <strong>Miércoles 30 de septiembre de 2026</strong> · 7:30 p.m. (CDMX) · <strong>Cupos limitados</strong> — evento 100% gratuito</div>
+<div class="mini-aviso">🗓 <strong>Jueves 15 de octubre de 2026</strong> · 7:30 p.m. (CDMX) · <strong>Cupos limitados</strong> — evento 100% gratuito</div>
 
 <header class="nav">
   <div class="nav-inner">
-    <a href="#" class="logo"><span class="ico">🐝</span>HIDROMIEL&nbsp;<span>MÉXICO</span></a>
+    <a href="#" class="logo"><span class="ico">🍺</span>CERVEZA&nbsp;<span>MÉXICO</span></a>
     <nav class="nav-links">
       <a href="#temas">Temas</a>
       <a href="#temporizador">Cuenta regresiva</a>
@@ -210,14 +209,14 @@ footer b{color:var(--oro)}
   <div>
     <div class="cejilla">Webinar gratuito · En vivo por Zoom</div>
     <h1>
-      <span class="acento">Cómo diseñar una</span>
-      <span class="subrayado">receta profesional</span> de hidromiel
+      <span class="acento">Cómo formular tu</span>
+      <span class="subrayado">receta de cerveza</span> desde cero
     </h1>
     <p class="lead">
-      Aprende a <strong>formular, equilibrar y personalizar</strong> tu hidromiel con base en la <strong>ciencia y la experiencia</strong>.
+      Aprende a <strong>formular, equilibrar y personalizar</strong> tu cerveza con base en la <strong>ciencia y la experiencia</strong>. Para cerveceros caseros y artesanales.
     </p>
     <div class="hero-datos">
-      <div class="chip"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>Mié 30 · Septiembre 2026</div>
+      <div class="chip"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>Jue 15 · Octubre 2026</div>
       <div class="chip"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>7:30 p.m. · CDMX</div>
       <div class="chip"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3"/></svg>Zoom en vivo</div>
     </div>
@@ -230,16 +229,16 @@ footer b{color:var(--oro)}
   <!-- IMAGEN DEL PÓSTER -->
   <div class="poster-zona">
     <div class="poster-marco">
-      <img id="poster" alt="Póster del webinar: Cómo diseñar una receta profesional de hidromiel">
+      <img id="poster" alt="Póster del webinar: Cómo formular tu receta de cerveza desde cero">
     </div>
-    <div class="etiqueta-flotante">¡Regístrate ahora!</div>
+    <div class="etiqueta-flotante">¡Regístrate gratis!</div>
   </div>
 </section>
 
 <!-- CONFIANZA -->
 <div class="confianza">
   <div class="confianza-inner revelar">
-    <div><b>+2,500</b><span>Fermentadores</span></div>
+    <div><b>+2,500</b><span>Cerveceros</span></div>
     <div><b>4.9/5</b><span>Valoración</span></div>
     <div><b>5</b><span>Pilares de la receta</span></div>
     <div><b>100%</b><span>Gratuito</span></div>
@@ -251,7 +250,7 @@ footer b{color:var(--oro)}
   <div class="contenedor revelar">
     <div class="cejilla" style="justify-content:center">Cuenta regresiva</div>
     <h2 id="timer-titulo">El webinar comienza en…</h2>
-    <div class="fecha-linea">📅 Miércoles 30 de septiembre de 2026 · 🕖 7:30 p.m. · Hora CDMX</div>
+    <div class="fecha-linea">📅 Jueves 15 de octubre de 2026 · 🕖 7:30 p.m. · Hora CDMX</div>
     <div class="reloj">
       <div class="unidad"><div class="num" id="dias">--</div><div class="etq">Días</div></div>
       <div class="unidad"><div class="num" id="horas">--</div><div class="etq">Horas</div></div>
@@ -261,7 +260,7 @@ footer b{color:var(--oro)}
     <p class="nota">Mientras esperas, <strong>únete al grupo de WhatsApp</strong>: recibirás el enlace de Zoom, recordatorios y material de apoyo.</p>
     <a class="btn btn-wa pulso" href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener">📲 Entrar al grupo de WhatsApp</a>
     <br>
-    <a class="link-cal" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Webinar%3A+C%C3%B3mo+dise%C3%B1ar+una+receta+profesional+de+hidromiel&dates=20260930T193000%2F20260930T210000&ctz=America%2FMexico_City" target="_blank" rel="noopener">＋ Agregar a Google Calendar</a>
+    <a class="link-cal" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Webinar%3A+C%C3%B3mo+formular+tu+receta+de+cerveza+desde+cero&dates=20261015T193000%2F20261015T210000&ctz=America%2FMexico_City" target="_blank" rel="noopener">＋ Agregar a Google Calendar</a>
   </div>
 </section>
 
@@ -270,15 +269,15 @@ footer b{color:var(--oro)}
   <div class="contenedor">
     <div class="cabecera revelar">
       <div class="cejilla" style="justify-content:center">Programa</div>
-      <h2>Pilares de la <em>receta profesional</em></h2>
-      <p>Cinco bloques prácticos para formular, equilibrar y personalizar tu hidromiel con base en la ciencia y la experiencia.</p>
+      <h2>Pilares de una <em>receta equilibrada</em></h2>
+      <p>Cinco bloques prácticos para formular, equilibrar y personalizar tu cerveza con base en la ciencia y la experiencia.</p>
     </div>
     <div class="grid-temas">
-      <div class="tema revelar"><div class="icono"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9z"/><path d="M12 7l4 2.25v4.5L12 16l-4-2.25v-4.5z"/></svg></div><h3>Selección de la miel</h3><p>Su impacto en el perfil de tu hidromiel.</p></div>
-      <div class="tema revelar"><div class="icono"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 2h4M12 2v6M8.5 8h7l3.5 8.5a3 3 0 0 1-2.8 4.1H7.8A3 3 0 0 1 5 16.5z"/><path d="M7.5 14h9"/></svg></div><h3>Balance de azúcares y nutrientes</h3><p>Para una fermentación saludable.</p></div>
-      <div class="tema revelar"><div class="icono"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3L2.5 20h19z"/><path d="M12 10v4.5"/><circle cx="12" cy="17.2" r=".5" fill="currentColor"/></svg></div><h3>Elección de levaduras</h3><p>Y cómo influyen en el aroma y sabor.</p></div>
-      <div class="tema revelar"><div class="icono"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3h8c0 5 2 7 2 10a6 6 0 0 1-12 0c0-3 2-5 2-10z"/><path d="M6.5 13.5h11"/></svg></div><h3>Ajuste de la receta</h3><p>Según el estilo que quieras lograr.</p></div>
-      <div class="tema revelar"><div class="icono"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c2.5 3.5 5 6 5 9.5a5 5 0 0 1-10 0C7 9 9.5 6.5 12 3z"/></svg></div><h3>Consejos prácticos</h3><p>Para obtener una hidromiel estable y de calidad.</p></div>
+      <div class="tema revelar"><div class="icono"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-1 15a3 3 0 0 1-3 3h-2a3 3 0 0 1-3-3z"/><path d="M7.8 8.5h8.4"/><path d="M8.2 13h7.6"/></svg></div><h3>Selección del estilo</h3><p>Define qué cerveza quieres lograr y sus parámetros clave.</p></div>
+      <div class="tema revelar"><div class="icono"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V7"/><path d="M12 12c-3.3 0-4.7-2-4.7-4.6C10 7.4 12 9 12 12z"/><path d="M12 12c3.3 0 4.7-2 4.7-4.6C14 7.4 12 9 12 12z"/><path d="M12 7c-2.6 0-3.8-1.6-3.8-3.8C10.4 3.2 12 4.8 12 7z"/><path d="M12 7c2.6 0 3.8-1.6 3.8-3.8C13.6 3.2 12 4.8 12 7z"/></svg></div><h3>Elección de maltas</h3><p>La base de tu receta: color, cuerpo y perfil maltoso.</p></div>
+      <div class="tema revelar"><div class="icono"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c3 2.3 4.8 5.6 4.8 9 0 4.8-2.4 8.4-4.8 11-2.4-2.6-4.8-6.2-4.8-11 0-3.4 1.8-6.7 4.8-9z"/><path d="M8 9.6c2.6 1 5.4 1 8 0"/><path d="M8.4 13.6c2.4.9 4.8.9 7.2 0"/><path d="M9.6 17.4c1.6.7 3.2.7 4.8 0"/></svg></div><h3>Lúpulos y amargor</h3><p>Variedades, adiciones y cálculo de IBU.</p></div>
+      <div class="tema revelar"><div class="icono"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3h5"/><path d="M10 3v5.5L4.8 17.6A2.5 2.5 0 0 0 7 21.3h10a2.5 2.5 0 0 0 2.2-3.7L14 8.5V3"/><path d="M7.5 15h9"/></svg></div><h3>Elección de levaduras</h3><p>Y cómo influyen en el aroma, sabor y atenuación.</p></div>
+      <div class="tema revelar"><div class="icono"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></div><h3>Balance de la receta</h3><p>Gravedad, alcohol y color para una receta equilibrada.</p></div>
     </div>
   </div>
 </section>
@@ -288,24 +287,24 @@ footer b{color:var(--oro)}
   <div class="revelar">
     <div class="cabecera">
       <div class="cejilla">¿Es para mí?</div>
-      <h2>Quieres una <em style="color:var(--oro)">hidromiel profesional</em></h2>
+      <h2>Quieres una <em style="color:var(--oro)">cerveza profesional</em></h2>
     </div>
     <ul class="lista-check">
-      <li><span class="check">✓</span><span><strong>Eres principiante</strong> y quieres empezar bien, sin perder tiempo ni miel.</span></li>
-      <li><span class="check">✓</span><span><strong>Ya hiciste lotes</strong> pero con resultados irregulares: sabores raros, turbidez, paradas.</span></li>
+      <li><span class="check">✓</span><span><strong>Eres principiante</strong> y quieres empezar bien, sin perder tiempo ni ingredientes.</span></li>
+      <li><span class="check">✓</span><span><strong>Ya hiciste lotes</strong> pero con resultados irregulares: sabores raros, turbidez, fermentaciones atascadas.</span></li>
       <li><span class="check">✓</span><span><strong>Buscas calidad consistente</strong> para compartir, concursar o vender.</span></li>
-      <li><span class="check">✓</span><span><strong>Te apasiona lo artesanal</strong> y quieres dominar una bebida milenaria mexicana.</span></li>
+      <li><span class="check">✓</span><span><strong>Te apasiona lo artesanal</strong> y quieres dominar el arte de hacer cerveza.</span></li>
     </ul>
   </div>
   <aside class="tarjeta-wa revelar">
-    <div class="script">¡Descubre el poder de la hidromiel! 🐝</div>
+    <div class="script">¡Domina el arte de la cerveza! 🍺</div>
     <h3>Este webinar es solo el inicio…</h3>
     <p>Al unirte al grupo de WhatsApp recibirás:</p>
     <ul>
       <li>El <b>enlace de Zoom</b> antes del evento</li>
       <li><b>Recordatorios</b> para no perdértelo</li>
       <li>Material de apoyo y <b>guía práctica</b></li>
-      <li>Acceso preferente al <b>Paquete de Cursos de Hidromiel</b></li>
+      <li>Acceso preferente al <b>Paquete de Cursos de Cerveza Artesanal</b></li>
     </ul>
     <a class="btn btn-wa" href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener">Quiero mi lugar en el grupo →</a>
   </aside>
@@ -319,8 +318,8 @@ footer b{color:var(--oro)}
   </div>
   <div class="faq-lista revelar">
     <details open><summary>¿El webinar tiene algún costo?</summary><p>No, es 100% gratuito. Solo únete al grupo de WhatsApp para recibir el enlace de Zoom.</p></details>
-    <details><summary>¿Necesito experiencia previa?</summary><p>Ninguna. Es para principiantes y para quienes ya elaboran hidromiel y quieren mejorar.</p></details>
-    <details><summary>¿Qué horario y zona horaria?</summary><p>Miércoles 30 de septiembre de 2026, 7:30 p.m. hora CDMX. Usa el botón "Agregar a Google Calendar".</p></details>
+    <details><summary>¿Necesito experiencia previa?</summary><p>Ninguna. Es para principiantes y para quienes ya elaboran cerveza y quieren mejorar.</p></details>
+    <details><summary>¿Qué horario y zona horaria?</summary><p>Jueves 15 de octubre de 2026, 7:30 p.m. hora CDMX. Usa el botón "Agregar a Google Calendar".</p></details>
     <details><summary>¿Habrá grabación?</summary><p>Es en vivo por Zoom. Los miembros del grupo recibirán información sobre material y accesos posteriores.</p></details>
   </div>
 </section>
@@ -330,32 +329,32 @@ footer b{color:var(--oro)}
   <div class="contenedor revelar">
     <div class="script">¡No te quedes fuera!</div>
     <h2>Asegura tu lugar en el webinar en vivo</h2>
-    <p>Únete ahora al grupo de WhatsApp y da el primer paso para diseñar una receta profesional de hidromiel.</p>
-    <a class="btn btn-wa btn-lg pulso" href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener">🍯 Unirme al grupo de WhatsApp</a>
+    <p>Únete ahora al grupo de WhatsApp y da el primer paso para formular tu receta de cerveza desde cero.</p>
+    <a class="btn btn-wa btn-lg pulso" href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener">🍺 Unirme al grupo de WhatsApp</a>
     <div class="aviso">Es gratis, tardas 10 segundos y puedes salir cuando quieras.</div>
   </div>
 </section>
 
-<footer>🐝 <b>Hidromiel México</b> · Webinar gratuito "Cómo diseñar una receta profesional de hidromiel" · Mié 30 sept 2026 · 7:30 p.m. CDMX · Zoom</footer>
+<footer>🍺 <b>Cerveza México</b> · Webinar gratuito "Cómo formular tu receta de cerveza desde cero" · Jue 15 oct 2026 · 7:30 p.m. CDMX · Zoom</footer>
 
 <a class="flotante" href="https://chat.whatsapp.com/Lw4fAvCAB2GDnIgErx9qZx" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg width="30" height="30" viewBox="0 0 24 24" fill="#052b12"><path d="M12.05 21.5a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.56.93.95-3.47-.22-.36A9.42 9.42 0 0 1 2.64 12c0-5.2 4.24-9.44 9.44-9.44 2.52 0 4.89.98 6.67 2.76A9.38 9.38 0 0 1 21.5 12c0 5.2-4.24 9.5-9.45 9.5zm8.03-17.47A11.36 11.36 0 0 0 12.05.62C5.82.62.76 5.68.76 11.9c0 2 .52 3.95 1.51 5.68L.67 24l6.57-1.72a11.28 11.28 0 0 0 4.8 1.08h.01c6.22 0 11.28-5.06 11.29-11.28a11.2 11.2 0 0 0-3.26-8.05z"/></svg>
 </a>
 
 <script>
-/* ── IMAGEN DEL PÓSTER (Nueva imagen adjunta) ── */
-const URL_IMAGEN = "https://i.postimg.cc/0jt9TGPr/Chat-GPT-Image-27-sept-2026-14-32-58.png";
+/* ── IMAGEN DEL PÓSTER (póster de cerveza · postimg.cc permanente) ── */
+const URL_IMAGEN = "https://i.postimg.cc/MGSZt5XW/Webinar-gratuito-formula-tu-cerveza.png";
 
 const poster = document.getElementById("poster");
 poster.src = URL_IMAGEN;
 poster.style.display = "block";
 poster.onerror = () => {
   poster.parentElement.innerHTML =
-    '<div style="aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:40px;text-align:center;color:var(--oro);font-weight:800">🍯<br>Póster del webinar<br>Cómo diseñar una receta profesional de hidromiel</div>';
+    '<div style="aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:40px;text-align:center;color:var(--oro);font-weight:800">🍺<br>Póster del webinar<br>Cómo formular tu receta de cerveza desde cero</div>';
 };
 
-/* ── TEMPORIZADOR: mie 30 sept 2026, 7:30 p.m. CDMX ── */
-const objetivo = new Date("2026-09-30T19:30:00-06:00").getTime();
+/* ── TEMPORIZADOR: jue 15 oct 2026, 7:30 p.m. CDMX ── */
+const objetivo = new Date("2026-10-15T19:30:00-06:00").getTime();
 const $ = id => document.getElementById(id);
 
 function tick(){
